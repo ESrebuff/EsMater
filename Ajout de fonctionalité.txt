@@ -1,0 +1,5 @@
+L'ajout de nouvelles fonctionnalités se fait à présent en trois étapes :
+
+ajout ou enrichissement de la classe modèle associée ;
+ajout ou enrichissement d'une vue utilisant le gabarit pour afficher les données ;
+ajout ou enrichissement d'une classe contrôleur pour lier le modèle et la vue.
