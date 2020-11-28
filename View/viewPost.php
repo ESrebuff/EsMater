@@ -3,19 +3,37 @@ require_once 'Function/functions.php';
 sessionOn();
 ?>
 <?php if(isset($_SESSION["auth"])): ?>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Account" ?>">Espace personnel</a>
+<a class="link link-posts" href="<?= "index.php?action=toAccount" ?>">Espace personnel</a>
 <?php else: ?>
 <a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a>
 <a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a>
 <?php endif; ?>
 
-<article>
-    <header>
-        <h1 class="titreBillet"><?= $post['title'] ?></h1>
-        <time><?= $post['date'] ?></time>
-    </header>
-    <p><?= $post['content'] ?></p>
-</article>
+<header>
+    <div class="container">
+        <div class="row">
+            <article>
+                <h1 class="titreBillet"><?= $post['title'] ?></h1>
+                <time><?= $post['date'] ?></time>
+                <p><?= $post['content'] ?></p>
+            </article>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <?php if(isset($_SESSION["auth"])): ?>
+    <div class="row">
+        <a href="index.php?action=booked&id=<?= $post['id'] ?>">S'inscrire à l'activité</a>
+    </div>
+    <?php else: ?>
+    <div class="justify-content-center text-center">
+        <div class="alert alert-danger">
+            Vous devez être connecté pour pouvoir vous inscrire
+            <a href="index.php?action=linkView&swicthTo=Login" class="text-end">Se connecter</a>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
 <hr />
 
 <div class="d-flex justify-content-center">
@@ -28,9 +46,13 @@ sessionOn();
             <div class="comment-widgets">
                 <!-- Comment Row -->
                 <div class="d-flex flex-row comment-row">
-                    <div class="p-2"><img class="rounded-circle avatar-posts" src="Content/images/avatars/<?= $comment['user_avatar'] ?>" alt="avatar"></div>
+                    <a href="index.php?action=showProfile&profile=<?= $comment['author'] ?>">
+                        <div class="p-2"><img class="rounded-circle avatar-posts" src="Content/images/avatars/<?= $comment['user_avatar'] ?>" alt="avatar"></div>
+                    </a>
                     <div class="comment-text">
-                        <h6 class="font-medium"><?= $comment['author'] ?></h6> <span class="m-b-15 d-block"> <?= $comment['content'] ?> </span>
+                        <a href="index.php?action=showProfile&profile=<?= $comment['author'] ?>">
+                            <h6 class="font-medium"><?= $comment['author'] ?></h6>
+                        </a> <span class="m-b-15 d-block"> <?= $comment['content'] ?> </span>
                         <div class="center">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
@@ -44,12 +66,11 @@ sessionOn();
                             <?php
                         } else if($_SESSION["auth"]["role"] == "admin"){
                         ?>
-                            <a class="text-danger" href="">Supprimer</a>
+                            <a class="text-danger" href="index.php?action=deleteComment&idComment=<?= $comment['id'] ?>&id=<?= $post['id'] ?>">Supprimer</a>
                             <?php
                             }
                         }                   
                         ?>
-                            <a class="text-danger" href="">Signalez</a>
                         </div>
                     </div>
                 </div>

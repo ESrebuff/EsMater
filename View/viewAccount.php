@@ -23,13 +23,34 @@ logged_auth_only();
         </div>
         <button type="submit" class="btn btn-primary">Changer mon mot de passe</button>
     </form>
-</div>
-<?php
+    <h1>Vos prochaines activitées</h1>
+    <?php foreach ($myBookings as $myBooking): ?>
+    <div class="col-lg-6 mb-4">
+        <div class="posts">
+            <img class="img-posts" src="Content/images/posts/<?=$myBooking['img']?>" alt="">
+        </div>
+    </div>
+    <?php endforeach;
 if($_SESSION['auth']['role'] == 'admin'){
 ?>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=AddPost" ?>">Poster une activité</a><br>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=poste" ?>">Gerer les commentaires signalez</a>
-<p>(Nombre de commentaire signalez : 0)</p>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=poste" ?>">Voir les inscris</a> <br>
-<?php
+    <a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=AddPost" ?>">Poster une activité</a><br>
+    <a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=poste" ?>">Voir les inscris</a> <br>
+    <h3 class="d-flex justify-content-center">Les inscrits</h3>
+    <?php foreach ($bookings as $booking): ?>
+    <div class="d-flex justify-content-center">
+        <div class="col-lg-6">
+            <div class="card">   
+               <div class="row justify-content-center">
+                <a href="index.php?action=showProfile&profile=<?= $booking['username'] ?>">
+                    <p><?= $booking['username'] ?> </p>
+                </a>
+                <a href="<?= "index.php?action=post&id=" . $booking['post_id'] ?>">
+                    <p><?=$booking['title']?></p>
+                </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach;
 } ?>
+</div>

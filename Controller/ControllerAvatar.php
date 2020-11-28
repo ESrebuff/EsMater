@@ -1,5 +1,6 @@
 <?php
 
+require_once 'Function/Tools.php';
 require_once 'Model/Auth.php';
 require_once 'Model/Comment.php';
 require_once 'Model/Post.php';
@@ -9,45 +10,45 @@ class ControllerAvatar {
     
     private $auth;
     private $comment;
+    private $post;
+    private $tools;
 
     public function __construct() {
         $this->auth = new Auth();
         $this->comment = new Comment();
         $this->post = new Post();
+        $this->tools = new Tools();
     }
     
-    public function addAvatar($img, $authId){
+    // Verify and add a img with all the good conditions
+    public function addAvatar($img, $authId, $userId){
         $maxSize = 2097152;
         $ext = strtolower(substr($img['name'],-3));
         $allow_ext = array('jpg', 'jpeg',  'gif', 'png');
         if($img['size'] <= $maxSize){
             if(in_array($ext, $allow_ext)){
-                $result = move_uploaded_file($img['tmp_name'], "Content/images/avatars/".$img['name']);
+                $nameImg = $userId . "." . $ext;
+                $result = move_uploaded_file($img['tmp_name'], "Content/images/avatars/" . $nameImg);
                 if($result){
-                    $user = $this->auth->updateAvatar($authId, $img['name']);
-                    $this->comment->updateAvatarComment($authId, $img['name']);
-                    $this->post->updateAvatarPost($authId, $img['name']);
+                    $user = $this->auth->updateAvatar($authId, $nameImg);
+                    $this->comment->updateAvatarComment($authId, $nameImg);
+                    $this->post->updateAvatarPost($authId, $nameImg);
                     if($user){
-                        session_start();
-                        $_SESSION['flash']['success'] = "Votre photo de profil à bien été modifié";
                         $user = $this->auth->getAuth($authId);
                         $_SESSION["auth"] = $user;
-                        header('Location: index.php?action=linkView&swicthTo=Account');
+                        $this->tools->flashMessage("success", "Votre photo de profil à bien été modifié", "Account");
                     }
                 } else{
                     session_start();
-                    $_SESSION['flash']['danger'] = "Erreur durant l'importation de votre photo de profi";
-                    header('Location: index.php?action=linkView&swicthTo=Account');
+                    $this->tools->flashMessage("danger", "Erreur durant l'importation de votre photo de profi", "Account");
                 }
             } else{
                 session_start();
-                $_SESSION['flash']['danger'] = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-                header('Location: index.php?action=linkView&swicthTo=Account');
+                $this->tools->flashMessage("danger", "Votre photo de profil doit être au format jpg, jpeg, gif ou png", "Account");
             }
         } else{
             session_start();
-            $_SESSION['flash']['danger'] = "Votre photo de profil ne doit pas dépasser 2Mo";
-            header('Location: index.php?action=linkView&swicthTo=Account');
+            $this->tools->flashMessage("danger", "Votre photo de profil ne doit pas dépasser 2Mo", "Account");
         }
     }
 }

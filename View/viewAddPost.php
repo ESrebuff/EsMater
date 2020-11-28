@@ -13,6 +13,6 @@ admin_only()
         <input type="text" name="title" placeholder="Titre de votre acticle">
         <textarea id="mytextarea" name="content" rows="4" placeholder="Ecrivez ou inserez du text ici" required>
         </textarea>
-        <input type="submit" value="Modifier le post" />
+        <input type="submit" value="Envoyer" />
     </form>
 </div>

@@ -1,4 +1,5 @@
 <?php
+// Try if he logged
 function logged_auth_only(){
     if(session_status() == PHP_SESSION_NONE){
     session_start();
@@ -10,6 +11,7 @@ function logged_auth_only(){
     }
 }
 
+// Try if he are a admin
 function admin_only(){
     if(!$_SESSION['auth']['role'] == 'admin'){
     $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette page";
@@ -18,7 +20,7 @@ function admin_only(){
     }
 }
 
-
+// Do a session
 function sessionOn(){
     if(session_status() == PHP_SESSION_NONE){
     session_start();

@@ -48,4 +48,16 @@ class Post extends Model {
         $req = $this->executeRequest($sql, array($idPost));
         return $req;
     }
+    
+    public function updatePostAndImg($img, $title, $content, $postId){
+        $sql = 'UPDATE t_post SET title= ?, content= ?, img=?' . 'WHERE id = ?';
+        $req = $this->executeRequest($sql, array($title, $content, $img, $postId));
+        return $req;
+    }
+    
+    public function updatePost($title, $content, $postId){
+        $sql = 'UPDATE t_post SET title= ?, content= ?' . 'WHERE id = ?';
+        $req = $this->executeRequest($sql, array($title, $content, $postId));
+        return $req;
+    }
 }

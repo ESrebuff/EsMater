@@ -12,7 +12,7 @@ admin_only()
         </div>
     </div>
 
-    <form method="post" action="index.php?action=updatePost" enctype="multipart/form-data">
+    <form method="post" action="index.php?action=updatePost&id=<?= $post['id'] ?>" enctype="multipart/form-data">
         <div>
             <label for="files" class="btn  btn-primary">Modifier l'image</label>
             <input id="files" name="img" style="visibility:hidden;" type="file">
