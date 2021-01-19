@@ -1,6 +1,6 @@
 <?php
 
-require 'Controller/Router.php';
+require 'vendor/autoload.php';
 
-$router = new Router();
+$router = new \MyApp\Controller\Router();
 $router->routerRequest();

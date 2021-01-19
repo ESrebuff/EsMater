@@ -1,0 +1,999 @@
+/* GENERAL */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    font-weight: 700 !important;
+}
+
+.hide {
+    display: none;
+}
+
+.close-message {
+    float: right;
+    font-size: 15px;
+}
+
+.close-message:hover {
+    color: #000 !important;
+}
+
+.flash-message {
+    width: 50%;
+    margin: auto;
+    top: 140px;
+}
+
+.style-link-none {
+    color: black;
+}
+
+.style-link-none:hover {
+    color: black;
+}
+
+
+/* HEADER */
+
+.main-header {
+    width: 100%;
+    height: 90vh;
+    background: url(../images/web/pexels-alexandro-david-1835016.jpg) no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.header-text {
+    padding-top: 35vh;
+    text-align: center;
+    color: #fff;
+}
+
+.content {
+    z-index: 2;
+    width: 94%;
+    margin: 4em auto;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: justify;
+}
+
+.logo a {
+    line-height: 60px;
+    position: fixed;
+    float: left;
+    margin: 16px 46px;
+    color: #fed136;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.logo a:hover {
+    text-decoration: none;
+    font-size: 22px;
+    color: #fed136;
+}
+
+.main-nav ul li .main-yellow {
+    color: #fed136;
+}
+
+.main-nav {
+    z-index: 2;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    line-height: 60px;
+}
+
+.main-nav ul {
+    line-height: 60px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #000;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+    transition: 0.5s;
+}
+
+.main-nav.black ul,
+.main-nav.color-black ul {
+    background: #212529;
+}
+
+.main-nav ul li {
+    display: inline-block;
+    padding: 16px 40px;
+    ;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
+.main-nav ul li a:hover {
+    color: #fed136;
+}
+
+.menu-icon {
+    line-height: 60px;
+    width: 100%;
+    background: #212529;
+    text-align: right;
+    box-sizing: border-box;
+    padding: 15px 24px;
+    cursor: pointer;
+    color: #fff;
+    display: none;
+}
+
+@media(max-width: 1024px) {
+
+    .logo {
+        position: fixed;
+        top: 0;
+    }
+
+    .main-nav ul {
+        max-height: 0px;
+        background: #212529;
+    }
+
+    .main-nav.black ul,
+    .main-nav.color-black ul {
+        background: #212529;
+    }
+
+    .main-nav .showing {
+        max-height: 34em;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+}
+
+/* HOME PAGE*/
+/* TEAM */
+
+.team {
+    background-color: #fff;
+    margin: 100px 0px;
+}
+
+.team h4 {
+    margin-top: 20px;
+    color: #343a40;
+}
+
+.team-img {
+    margin: 50px 0px 0px 0px;
+    border: 10px solid #dfe0e1;
+    width: 300px;
+    transition: transform 330ms
+}
+
+.team-member:hover > .team-img {
+    transform: scale(1.1);
+    transition: transform 330ms ease-in-out
+}
+
+.reseau {
+    height: 25px;
+}
+
+/* workshop */
+
+.workshop-section {
+    padding: 70px 10%;
+    background-color: #f8f9fa;
+}
+
+
+.main-text-workshop {
+    margin: 50px 0px 70px 0px;
+}
+
+.workshop {
+    border-radius: 3px;
+    margin: auto;
+    height: 400px;
+    width: 500px;
+    margin-bottom: 60px;
+}
+
+.workshop-text {
+    padding: 15px 0px;
+    transition-duration: 150ms;
+    background-color: #fff;
+    text-align: center;
+    color: #212529;
+}
+
+.workshop-text p {
+    font-style: italic;
+}
+
+.workshop-home {
+    margin: auto;
+    width: 90%;
+}
+
+.workshop-img {
+    margin: auto;
+    height: 300px;
+    transition-duration: 150ms;
+}
+
+.workshop-1,
+.workshop-2,
+.workshop-3,
+.workshop-4 {
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(155, 155, 155, 1);
+}
+
+.workshop-1 {
+    background-image: url(../images/web/communication.jpg);
+}
+
+.workshop-2 {
+    background-image: url(../images/web/fenimin.jpg);
+}
+
+.workshop-3 {
+    background-image: url(../images/web/rebozo.jpg);
+}
+
+.workshop-4 {
+    background-image: url(../images/web/vision-board.jpg);
+}
+
+.workshop-link:hover {
+    text-decoration: none;
+}
+
+.workshop-link:hover > .workshop > .workshop-text {
+    transform: scale(1.05);
+    transition: transform 330ms ease-in-out
+}
+
+.workshop-link:hover > .workshop > .workshop-img {
+    transform: scale(1.05);
+    transition: transform 330ms ease-in-out
+}
+
+@media screen and (max-width: 1440px) {
+    .workshop-home {
+        width: 100%;
+    }
+    
+    .workshop {
+    width: 90%;
+}
+    
+}
+
+@media screen and (max-width: 1024px) {
+    .workshop-section {
+        padding: 0px 5%;
+        margin: 0px 5%;
+    }
+
+    .workshop-img {
+        margin: auto;
+        height: 250px;
+        width: 100%;
+    }
+
+    .workshop {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .workshop-section {
+        margin: 0px 0%;
+        padding: 0px 10%;
+    }
+}
+
+/* HOME POSTS */
+
+.last-post {
+    padding: 120px 0px 120px 0px;
+}
+
+.text-last-post {
+    margin-bottom: 50px;
+}
+
+.header-text-posts {
+    text-align: center;
+    color: #000;
+}
+
+.marge-top-posts {
+    width: 100%;
+    margin: 200px 0px 100px 0px;
+}
+
+.content-img-post {
+    width: 100%;
+    margin: auto;
+}
+
+.img-post {
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+/* CONTACT */
+.section-contact {
+    background: #212529;
+    padding: 90px 0px 100px 0px;
+}
+
+.section-contact h2 {
+    font-size: 45px;
+    margin-bottom: 100px;
+    color: #fff;
+}
+
+.section-contact input.form-control {
+    height: 70px;
+}
+
+
+.form-group-textarea textarea {
+    height: 100%;
+    min-height: 17rem;
+}
+
+.section-contact .form-group textarea {
+    padding: 1.25rem;
+}
+
+.section-contact .btn-primary {
+    margin: 20px;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+}
+
+.section-contact .btn-primary:hover {
+    background-color: #fec810;
+    border-color: #fec810;
+}
+
+/* FOOTER */
+footer a {
+    width: 45px;
+    height: 45px;
+}
+
+footer i {
+    position: relative;
+    top: 4px;
+    font-size: 20px;
+}
+
+footer .fa-instagram {
+    font-size: 23px;
+}
+
+footer .text-lg-right a {
+    color: #e6b301;
+}
+
+
+
+
+
+
+/* POSTS */
+
+.link-posts {
+    color: #ff7600;
+    font-size: 25px;
+    font-family: "Times New Roman";
+}
+
+.link {
+    color: #ff7600;
+}
+
+.link:hover {
+    color: #b25505;
+}
+
+.avatar-posts {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.avatar-account {
+    height: 150px;
+    width: 150px;
+}
+
+.name-avatar {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.time-posts {
+    position: relative;
+    top: -25px;
+    left: 10px;
+}
+
+.posts {
+    margin: auto;
+    width: 482px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+}
+
+.img-posts {
+    border-radius: 3px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.content-text-posts {
+    position: relative;
+    top: -40px;
+    margin-bottom: -50px;
+}
+
+@media screen and (max-width: 991px) {
+    .img-posts {
+        height: 450px;
+    }
+
+    .posts {
+        width: 382px;
+    }
+
+}
+
+@media screen and (max-width: 575px) {
+    .img-posts {
+        height: 300px;
+    }
+
+    .posts {
+        width: 282px;
+    }
+}
+
+@media screen and (max-width: 406px) {
+    .name-avatar {
+        position: relative;
+        top: -50px;
+        margin-left: 60px;
+    }
+
+    .time-posts {
+        top: -80px;
+        margin-left: 50px;
+    }
+
+    .content-text-posts {
+        top: -80px;
+    }
+
+}
+
+/* LOGIN */
+.login-section {
+    background: #f8f9fa;
+    width: 100%;
+    height: 90vh;
+    padding-top: 100px;
+    margin-bottom: 10px;
+}
+
+.card-login {
+    top: 80px;
+    margin: auto;
+    max-height: auto;
+    width: 50%;
+    background-color: rgba(33, 37, 41, 0.9) !important;
+}
+
+.card-header h1 {
+    text-align: center;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.card-body-login {
+    width: 80%;
+    margin: auto;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #212529;
+    color: #fed136;
+    border: 0 !important;
+}
+
+.card-body-login .form-group .form-control {
+    height: 50px;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.card-register .login_btn,
+.card-login .login_btn {
+    color: #fff;
+    font-size: 25px;
+    background-color: #fed136;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.card-register .login_btn p,
+.card-login .login_btn p {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 5px 0px 10px 0px;
+}
+
+.card-register .login_btn:hover {
+    background-color: #ffbf00;
+    color: #fff;
+}
+
+.card-login .login_btn:hover {
+    background-color: #ffbf00;
+    color: #fff;
+}
+
+.links {
+    color: white;
+}
+
+.links a {
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 1024px) {
+    .card-login {
+        width: 80%;
+    }
+
+    .button-submit {
+        width: 150px;
+        margin: auto;
+    }
+}
+
+/* REGISTER */
+.form-group {
+    margin-bottom: 30px !important;
+}
+
+.card-register {
+    top: 80px;
+    margin: auto;
+    max-height: auto;
+    width: 50%;
+    background-color: rgba(33, 37, 41, 0.9) !important;
+}
+
+.errors-register {
+    width: 80%;
+    margin: auto;
+}
+
+.marge-register {
+    height: 150px;
+    background: #f8f9fa;
+}
+
+@media screen and (max-width: 1024px) {
+    .card-register {
+        width: 80%;
+    }
+}
+
+/* POST */
+.img-workshop {
+    border-radius: 3px;
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+
+.title-post {
+    margin-bottom: 100px;
+}
+
+.author-section-post {
+    margin: 20px 0px 50px 0px;
+}
+
+.author-post {
+    color: #000;
+    position: relative;
+    top: 13px;
+    left: 5px;
+}
+
+.name-author-post {
+    position: relative;
+    top: -12px;
+    color: #000;
+}
+
+.avatar-post {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .img-workshop {
+        height: 575px;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+    .img-workshop {
+        height: 535px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .img-workshop {
+        height: 445px;
+    }
+
+}
+
+/* WHO AM I */
+.header-text-who-am-i {
+    margin: -50px 0px 50px 0px;
+}
+
+.who-am-i-img {
+    border-radius: 3px;
+}
+
+.way-from {
+    margin: 50px;
+}
+
+.accompagnement {
+    425
+}
+
+.text-who-am-i {
+    width: 80%;
+    margin: auto;
+    font-size: 18px;
+    font-family: Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+    color: #4d545a;
+}
+
+.text-who-am-i ul li {
+    position: relative;
+    left: -30px;
+    list-style-type: '-';
+}
+
+@media screen and (max-width: 425px) {
+    .accompagnement {
+        font-size: 22px;
+    }
+}
+
+
+
+/* TRY AGAIN */
+/* HEADER */
+
+.workshop-header {
+    width: 100%;
+    height: 100vh;
+    background: url(../images/web/pexels-alexandro-david-1835016.jpg) no-repeat 50% 100%;
+    background-size: cover;
+    position: fixed;
+    top: 0px;
+    z-index: 0;
+}
+
+.workshop-text-section {
+    text-align: center;
+    color: #fff;
+    position: relative;
+    top: 250px;
+    background: none;
+}
+
+.workshop-section-page {
+    width: 80%;
+    margin: auto;
+    background: white;
+    position: relative;
+    margin-top: 500px;
+    margin-bottom: 20px;
+    padding: 50px 0px;
+    border-radius: 3px;
+}
+
+.workshops-nav {
+    padding-top: 10px;
+}
+
+.workshops-nav .btn-secondary {
+    color: #fff;
+    background-color: #36393e;
+    border-color: #36393e;
+}
+
+.workshops-nav .menu {
+    text-align: center;
+}
+
+.workshops-nav ul li .main-yellow {
+    color: #fed136;
+}
+
+.workshops-nav ul {
+    list-style: none;
+    transition: 0.5s;
+}
+
+.workshops-nav ul li {
+    display: inline-block;
+    padding: 16px 10px;
+}
+
+.workshops-nav ul li a {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 16px;
+    width: 180px;
+    height: 36px;
+}
+
+.workshops-nav ul li a:hover {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+}
+
+.workshop-section-page .dropdown {
+    display: none;
+}
+
+.workshop-section-page .dropdown {
+    text-align: left;
+}
+
+.workshop-section-page .btn-secondary:not(:disabled):not(.disabled).active,
+.workshop-section-page .show > .btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #fed136;
+    border-color: #fed136;
+}
+
+
+.dropdown-menu.show {
+    display: block;
+}
+
+.workshop-section-page .dropdown-menu[x-placement^=bottom],
+.workshop-section-page .dropdown-menu[x-placement^=left],
+.workshop-section-page .dropdown-menu[x-placement^=right],
+.workshop-section-page .dropdown-menu[x-placement^=top] {
+    right: auto;
+    bottom: auto;
+}
+
+.workshop-section-page .dropdown-menu {
+    background-color: #212529;
+}
+
+.workshop-section-page .dropdown-item {
+    color: #fff;
+    font-weight: bold;
+
+}
+
+.workshop-section-page .dropdown-menu.show {
+    background: #36393e;
+}
+
+.workshop-section-page .dropdown-item:hover {
+    background-color: #fed136;
+    color: #fff;
+}
+
+.picto-item {
+    position: relative;
+    border-radius: 50%;
+}
+
+.picto-item:hover:after,
+.picto-item:focus:after {
+    content: attr(aria-label);
+    position: absolute;
+    top: -2.4em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    white-space: nowrap;
+    padding: 5px 14px;
+    background: #fed136;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1.2rem;
+}
+
+[aria-label]:focus {
+    outline: none;
+}
+
+.workshop-section-page .workshop-content ul li {
+    list-style-type: '- ';
+}
+
+@media(max-width: 1024px) {
+    .workshops-nav .menu ul {
+        display: none;
+    }
+
+    .workshop-section-page .dropdown {
+        display: block;
+        margin-bottom: 30px;
+    }
+}
+
+/* ACCOUNT */
+.account-background {
+    width: 100%;
+    height: 100vh;
+    background: #212529;
+    position: fixed;
+    top: 0px;
+    z-index: 0;
+}
+
+.account-section {
+    background: #fff;
+    z-index: 1;
+    position: relative;
+    height: 100%;
+}
+
+.avatar-posts {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.avatar-account {
+    height: 150px;
+    width: 150px;
+}
+
+.section-dropdown-account {
+    background: #36393e;
+    color: #fff;
+    margin: auto;
+    width: 60%;
+    height: 35px;
+    border: 1px solid #36393e;
+    font-size: 20px;
+    border-radius: 3px;
+}
+
+.section-dropdown-account p:hover {
+    color: #fed136;
+}
+
+.section-dropdown-account .fa-sort-down {
+    position: relative;
+    left: 10px;
+    top: -3px;
+    font-size: 25px;
+}
+
+.account-edit {
+    z-index: 1;
+    width: 60%;
+    margin: auto;
+    border: 1px solid #36393e;
+    background: #e3e3e3;
+    border-radius: 0px 0px 3px 3px;
+}
+
+.account-edit form {
+    margin: 20px;
+}
+
+.input-img-avatar {
+    width: 80% !important;
+    height: 50px !important;
+    overflow: hidden;
+    margin: auto;
+    padding-top: 9px !important;
+}
+
+
+.first-dropdown-account, .second-dropdown-account {
+    height: 90px;
+}
+
+@media screen and (max-width: 768px) {
+    .section-dropdown-account {
+        width: 100%;
+    }
+
+    .input-img-avatar {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .section-dropdown-account .fa-sort-down {
+        font-size: 15px;
+    }
+    
+    .section-dropdown-account{
+        font-size: 15px;
+        padding-top: 5px;
+    }
+}

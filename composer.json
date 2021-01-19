@@ -1,0 +1,9 @@
+{
+    "name": "esteban/organisation-esmater",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "src/"
+        }
+    }
+}
