@@ -33,7 +33,7 @@ class Tools {
        session_start();
         }
       if(!isset($_SESSION['auth'])){
-         $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette page";
+         $_SESSION['flash']['danger'] = "Vous n'avez pas le droit d'accéder à cette page lol";
        header('location: index.php?action=linkView&swicthTo=Login');
        exit();
        }

@@ -17,6 +17,7 @@ class Router {
   }
 // Redirection to a account page
     public function redirection(){
+        $this->tools->sessionOn();
         if(isset($_SESSION['auth'])){
             $userId = $_SESSION['auth']['id'];
             $this->tools->redirectionAccount($userId);
@@ -67,10 +68,15 @@ class Router {
                     $content = $_POST['content'];
                     $user_id = $_SESSION["auth"]['id'];
                     $user_avatar = $_SESSION["auth"]['avatar'];
-                    $this->ctrlPost->addPost($img, $title, $author, $content, $user_id, $user_avatar);
+                    if($title && $content) {
+                        $this->ctrlPost->addPost($img, $title, $author, $content, $user_id, $user_avatar);
+                    } else {
+                        $_SESSION['flash']['danger'] = "Il manque une informations";
+                        $this->redirection();
+                }
                 }else {
-                    session_start();
-                    $this->tools->flashMessage("danger", "Vous devez inserez une image", "AddPost");
+                    $_SESSION['flash']['danger'] = "Vous devez inserez une image";
+                        $this->redirection();
                 }
             }
             
@@ -93,7 +99,7 @@ class Router {
                     $username = htmlspecialchars($_POST['username']);
                     $email = htmlspecialchars($_POST['email']);
                     $password = htmlspecialchars($_POST['password']);
-                    if(empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username) || strlen($username) < 8){
+                    if(empty($username) || !preg_match('/^[a-zA-Z0-9_]+$/', $username) || strlen($username) < 6){
                         $errors['username'] = "Votre pseudo n'est pas valide";
                     } else {
                         if($this->ctrlAuth->usernameIsUniq($username)){
@@ -206,7 +212,6 @@ class Router {
                             session_start();
                             $this->tools->flashMessage("danger", "Vous devez rentrez un mot de passe valides", "AddPost");
                         }
-                        //strlen($password) < 8
                     }else {
                         throw new Exception("Une information est manquante");
                     }
@@ -321,6 +326,7 @@ class Router {
             
             // Add yourself to a post
             else if ($_GET['action'] == 'booked'){
+                $this->tools->sessionOn();
                 $idPost = intval($this->getParameter($_GET, 'id'));
                 $user = $_SESSION["auth"];
                 if ($idPost != 0 && $user) {
@@ -329,6 +335,17 @@ class Router {
                 else
                     throw new Exception("Identifiant de billet non valide");
             }
+            
+            else if ($_GET['action'] == 'deleteBooking') {
+                $this->tools->sessionOn();
+                $idBooking = $_GET['id'];
+                if(isset($_SESSION["auth"])){
+                    $this->ctrlPost->deleteBooking($idBooking);
+                } else {
+                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                }
+            }
+            
             
             // 
             else if ($_GET['action'] == 'sendToSupport') {
@@ -344,14 +361,31 @@ class Router {
                     if(!empty($errors)){
                         $this->ctrlPost->lastPost($errors);
                     } else {
-                        mail('estebanianis@gmail.com', 'Envoi depuis la page de Contact', 'Prénom : ' . $name . '. Numéro de téléphone : ' . $phone . ' Message : ' . $message , 'From: ' . $email);
+                        mail('estebanianis@gmail.com', 'Envoi depuis la page de Contact EsMater', 'Prénom : ' . $name . '. Numéro de téléphone : ' . $phone . ' Message : ' . $message , 'From: ' . $email);
                         $errors = false;
                         $this->ctrlPost->lastPost($errors);
                     }   
                 }
             }
             
-    
+            else if ($_GET['action'] == 'sendFromSupport') {
+                if(!empty($_POST)){
+                    $errors = array();
+                    $email = htmlspecialchars($_POST['email']);
+                    $message = htmlspecialchars($_POST['message']);
+                    if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+                        $errors['email'] = "Votre email n'est pas valide";
+                    } 
+                    if(!empty($errors)){
+                        $this->ctrlPost->lastPost($errors);
+                    } else {
+                        mail($email, "Ceci est un email envoyé depuis la page web EsMater", ' Message : ' . $message , 'From: ' . 'estebanianis@gmail.com');
+                        $errors = false;
+                        $this->ctrlPost->lastPost($errors);
+                    }   
+                }
+            }
+            
         }
 
         else { // No action : Show the home page

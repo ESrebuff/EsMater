@@ -25,25 +25,27 @@ $tools->sessionOn();
 </nav>
 
 <div class="marge-top-posts">
-<?php if(isset($number)): ?>
-<div class="main-header-posts">
-    <div class="header-text-posts">
-        <h1>Les activités</h1>
-        <p>Retrouver toutes les activitées du sites, vous pouvez vous y inscrire, je vous souhaite bonne navigation</p>
+    <?php if(isset($number)): ?>
+    <div class="main-header-posts">
+        <div class="header-text-posts">
+            <h1>Les activités</h1>
+            <p>Retrouver toutes les activitées du sites, vous pouvez vous y inscrire, je vous souhaite bonne navigation</p>
+        </div>
     </div>
-</div>
-<?php endif; ?>
+    <?php endif; ?>
 </div>
 
 <header>
     <article>
         <div class="container">
             <div class="row">
-                <?php foreach ($posts as $post): 
+                <?php 
+                if($posts) :  
+                foreach ($posts as $post): 
                 $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
                 ?>
                 <a class="style-link-none" href="<?= "index.php?action=post&id=" . $post['id'] ?>">
-                    <div class="col-lg-6 mb-5">
+                    <div class="col-lg-6 mb-5 postId<?= $post['id'] ?>">
                         <div class="posts">
                             <img class="img-posts" src="src/Content/images/posts/<?= $post['img'] ?>" alt="">
                             <div class="card-body">
@@ -60,28 +62,24 @@ $tools->sessionOn();
                                     </h4>
                                 </div>
                                 <div class="center">
-                                    <svg class="settings_post" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                                    </svg><br>
-                                    <div class="hide">
-                                        <?php 
+                                    <?php 
                                 if(isset($_SESSION["auth"])){
                                     if($_SESSION["auth"]["role"] == "admin"){
                                     ?>
-                                        <a href="index.php?action=editPost&id=<?= $post['id'] ?>">Modifier</a>
-                                        <a class="text-danger" href="index.php?action=deletePost&id=<?= $post['id'] ?>">Supprimer</a>
-                                        <?php
+                                    <a href="index.php?action=editPost&id=<?= $post['id'] ?>">Modifier</a>
+                                    <a class="text-danger delete-post" href="index.php?action=deletePost&id=<?= $post['id'] ?>">Supprimer</a>
+                                    <?php
                                     }
                                 }                   
                                 ?>
-                                    </div>
                                 </div>
                             </div>
 
                         </div>
                     </div>
                 </a>
-                <?php endforeach; ?>
+                <?php endforeach;
+                endif;?>
             </div>
 
             <!-- Paging -->

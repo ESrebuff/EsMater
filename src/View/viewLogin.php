@@ -36,10 +36,10 @@ if(isset($_SESSION['auth'])){
         <div class="card-body card-body-login">
             <form action="<?= "index.php?action=login" ?>" method="POST">
                 <div class="input-group form-group">
-                    <input type="text" name="username" class="form-control" placeholder="Pseudo ou email">
+                    <input type="text" name="username" class="form-control" placeholder="Pseudo ou email" required>
                 </div>
                 <div class="input-group form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" required>
                 </div>
                 <div class="row align-items-center remember">
                     <input type="checkbox" name="remember" value="1">Se souvenir de moi

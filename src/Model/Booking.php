@@ -30,9 +30,9 @@ class Booking extends Model {
         return $myBookings;
     }
     
-    public function addBooked($idPost, $userId, $username, $mixed, $img, $title, $date){
-        $sql = 'insert into t_booking(date, user_id, post_id, username, mix, img, title, dated_post)' . ' values(NOW(), :user_id, :post_id, :username, :mix, :img, :title, :dated_post)';
-        $booked = $this->executeRequest($sql, array('user_id' => $userId, 'post_id' => $idPost, 'username' => $username, 'mix' => $mixed, 'img' => $img, 'title' => $title, 'dated_post' => $date));
+    public function addBooked($idPost, $userId, $username, $user_avatar, $mixed, $img, $title, $date){
+        $sql = 'insert into t_booking(date, user_id, post_id, username, user_avatar, mix, img, title, dated_post)' . ' values(NOW(), :user_id, :post_id, :username, :user_avatar, :mix, :img, :title, :dated_post)';
+        $booked = $this->executeRequest($sql, array('user_id' => $userId, 'post_id' => $idPost, 'username' => $username, 'user_avatar' => $user_avatar, 'mix' => $mixed, 'img' => $img, 'title' => $title, 'dated_post' => $date));
     }
     
     public function updateBookingAndImg($title, $img, $idPost){
@@ -47,9 +47,15 @@ class Booking extends Model {
         return $req;
     }
     
-    public function deleteBooking($idPost){
+    public function deleteBookings($idPost){
         $sql = 'DELETE FROM t_booking' . ' WHERE post_id = :post_id';
         $req = $this->executeRequest($sql, array('post_id' => $idPost));
+        return $req;
+    }
+    
+    public function deleteBooking($idBooking){
+        $sql = 'DELETE FROM t_booking' . ' WHERE id = :id';
+        $req = $this->executeRequest($sql, array('id' => $idBooking));
         return $req;
     }
     

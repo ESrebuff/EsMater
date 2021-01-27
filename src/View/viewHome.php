@@ -1,7 +1,9 @@
 <?php $this->title = "EsMater Accueil";
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
-$date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
+if($post) {
+    $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));   
+}
 ?>
 <!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
@@ -77,55 +79,55 @@ $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($
         </div>
     </div>
     <div class="workshop-home">
-    <div class="row">
-        <div class="col-lg-6">
-            <a class="workshop-link" href="index.php?action=linkView&swicthTo=Communication">
-                <div class="workshop">
-                    <div class="workshop-img workshop-1"></div>
-                    <div class="workshop-text">
-                        <h4>Communication bienveillante</h4>
-                        <p class="text-muted">Communiquation non violante</p>
+        <div class="row">
+            <div class="col-lg-6">
+                <a class="workshop-link" href="index.php?action=linkView&swicthTo=Communication">
+                    <div class="workshop">
+                        <div class="workshop-img workshop-1"></div>
+                        <div class="workshop-text">
+                            <h4>Communication bienveillante</h4>
+                            <p class="text-muted">Communiquation non violante</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-6">
-            <a class="workshop-link" href="index.php?action=linkView&swicthTo=Feminity">
-                <div class="workshop">
-                    <div class="workshop-img workshop-2"></div>
-                    <div class="workshop-text">
-                        <h4>Atelier féminité</h4>
-                        <p class="text-muted">Atelier sur le féminin se comprendre</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="workshop-link" href="index.php?action=linkView&swicthTo=Feminity">
+                    <div class="workshop">
+                        <div class="workshop-img workshop-2"></div>
+                        <div class="workshop-text">
+                            <h4>Atelier féminité</h4>
+                            <p class="text-muted">Atelier sur le féminin se comprendre</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-6">
-            <a class="workshop-link" href="index.php?action=linkView&swicthTo=Rebozo">
-                <div class="workshop">
-                    <div class="workshop-img workshop-3"></div>
-                    <div class="workshop-text">
-                        <h4>Soin rébozo</h4>
-                        <p class="text-muted">Bien être massage</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="workshop-link" href="index.php?action=linkView&swicthTo=Rebozo">
+                    <div class="workshop">
+                        <div class="workshop-img workshop-3"></div>
+                        <div class="workshop-text">
+                            <h4>Soin rébozo</h4>
+                            <p class="text-muted">Bien être massage</p>
+                        </div>
                     </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-6">
-            <a class="workshop-link" href="index.php?action=linkView&swicthTo=VisionBoard">
-                <div class="workshop">
-                    <div class="workshop-img workshop-4"></div>
-                    <div class="workshop-text">
-                        <h4>Vision board</h4>
-                        <p class="text-muted">Ordonnée prise en main</p>
+                </a>
+            </div>
+            <div class="col-lg-6">
+                <a class="workshop-link" href="index.php?action=linkView&swicthTo=VisionBoard">
+                    <div class="workshop">
+                        <div class="workshop-img workshop-4"></div>
+                        <div class="workshop-text">
+                            <h4>Vision board</h4>
+                            <p class="text-muted">Ordonnée prise en main</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
-    </div>
     </div>
 </div>
-
+<?php if($post) : ?>
 <div class="last-post">
     <div class="container">
         <div class="row text-last-post">
@@ -153,21 +155,16 @@ $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($
                                 </h4>
                             </div>
                             <div class="center">
-                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-three-dots" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                                </svg><br>
-                                <div>
-                                    <?php 
+                                <?php 
                                 if(isset($_SESSION["auth"])){
                                     if($_SESSION["auth"]["role"] == "admin"){
                                     ?>
-                                    <a href="index.php?action=editPost&id=<?= $post['id'] ?>">Modifier</a>
-                                    <a class="text-danger" href="index.php?action=deletePost&id=<?= $post['id'] ?>">Supprimer</a>
-                                    <?php
+                                <a href="index.php?action=editPost&id=<?= $post['id'] ?>">Modifier</a>
+                                <a class="text-danger" href="index.php?action=deletePost&id=<?= $post['id'] ?>">Supprimer</a>
+                                <?php
                                     }
                                 }                   
                                 ?>
-                                </div>
                             </div>
                         </div>
 
@@ -177,6 +174,7 @@ $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($
         </div>
     </div>
 </div>
+<?php endif; ?>
 
 <div class="errors-register">
     <?php if(!empty($error)): ?>

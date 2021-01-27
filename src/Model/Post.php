@@ -1,6 +1,7 @@
 <?php
 
 namespace MyApp\Model;
+use Exception;
 
 require_once 'Model.php';
 
@@ -23,10 +24,7 @@ class Post extends Model {
   public function getPost($idPost) {
     $sql = 'select * FROM t_post' . ' where id=:id';
     $post = $this->executeRequest($sql, array('id' => $idPost));
-    if ($post->rowCount() == 1)
       return $post->fetch();  // Accès à la première ligne de résultat
-    else
-      throw new Exception("Aucun billet ne correspond à l'identifiant '$idPost'");
     }
 
     // Ajoute un post dans la base

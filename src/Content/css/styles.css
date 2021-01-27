@@ -16,6 +16,18 @@ h6 {
     font-weight: 700 !important;
 }
 
+.btn-primary {
+    background-color: #fed136 !important;
+    border-color: #fed136 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+    background-color: #ffbf00 !important;
+    border-color: #ffbf00 !important;
+}
+
 .hide {
     display: none;
 }
@@ -90,7 +102,7 @@ h6 {
 }
 
 .main-nav {
-    z-index: 2;
+    z-index: 3;
     position: fixed;
     top: 0px;
     width: 100%;
@@ -141,40 +153,6 @@ h6 {
     cursor: pointer;
     color: #fff;
     display: none;
-}
-
-@media(max-width: 1024px) {
-
-    .logo {
-        position: fixed;
-        top: 0;
-    }
-
-    .main-nav ul {
-        max-height: 0px;
-        background: #212529;
-    }
-
-    .main-nav.black ul,
-    .main-nav.color-black ul {
-        background: #212529;
-    }
-
-    .main-nav .showing {
-        max-height: 34em;
-    }
-
-    nav ul li {
-        box-sizing: border-box;
-        width: 100%;
-        padding: 24px;
-        text-align: center;
-    }
-
-    .menu-icon {
-        display: block;
-    }
-
 }
 
 /* HOME PAGE*/
@@ -288,41 +266,6 @@ h6 {
     transition: transform 330ms ease-in-out
 }
 
-@media screen and (max-width: 1440px) {
-    .workshop-home {
-        width: 100%;
-    }
-    
-    .workshop {
-    width: 90%;
-}
-    
-}
-
-@media screen and (max-width: 1024px) {
-    .workshop-section {
-        padding: 0px 5%;
-        margin: 0px 5%;
-    }
-
-    .workshop-img {
-        margin: auto;
-        height: 250px;
-        width: 100%;
-    }
-
-    .workshop {
-        margin-top: 50px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .workshop-section {
-        margin: 0px 0%;
-        padding: 0px 10%;
-    }
-}
-
 /* HOME POSTS */
 
 .last-post {
@@ -357,12 +300,12 @@ h6 {
 /* CONTACT */
 .section-contact {
     background: #212529;
-    padding: 90px 0px 100px 0px;
+    padding: 120px 0px 100px 0px;
 }
 
 .section-contact h2 {
     font-size: 45px;
-    margin-bottom: 100px;
+    margin-bottom: 120px;
     color: #fff;
 }
 
@@ -380,19 +323,12 @@ h6 {
     padding: 1.25rem;
 }
 
-.section-contact .btn-primary {
+.section-contact .btn-primary,
+.account-section .btn-primary {
     margin: 20px;
     padding: 20px;
     font-size: 20px;
     font-weight: bold;
-    color: #fff;
-    background-color: #fed136;
-    border-color: #fed136;
-}
-
-.section-contact .btn-primary:hover {
-    background-color: #fec810;
-    border-color: #fec810;
 }
 
 /* FOOTER */
@@ -415,11 +351,6 @@ footer .text-lg-right a {
     color: #e6b301;
 }
 
-
-
-
-
-
 /* POSTS */
 
 .link-posts {
@@ -429,11 +360,11 @@ footer .text-lg-right a {
 }
 
 .link {
-    color: #ff7600;
+    color: #fed136;
 }
 
 .link:hover {
-    color: #b25505;
+    color: #ffbf00;
 }
 
 .avatar-posts {
@@ -478,45 +409,6 @@ footer .text-lg-right a {
     position: relative;
     top: -40px;
     margin-bottom: -50px;
-}
-
-@media screen and (max-width: 991px) {
-    .img-posts {
-        height: 450px;
-    }
-
-    .posts {
-        width: 382px;
-    }
-
-}
-
-@media screen and (max-width: 575px) {
-    .img-posts {
-        height: 300px;
-    }
-
-    .posts {
-        width: 282px;
-    }
-}
-
-@media screen and (max-width: 406px) {
-    .name-avatar {
-        position: relative;
-        top: -50px;
-        margin-left: 60px;
-    }
-
-    .time-posts {
-        top: -80px;
-        margin-left: 50px;
-    }
-
-    .content-text-posts {
-        top: -80px;
-    }
-
 }
 
 /* LOGIN */
@@ -585,33 +477,12 @@ footer .text-lg-right a {
     margin: 5px 0px 10px 0px;
 }
 
-.card-register .login_btn:hover {
-    background-color: #ffbf00;
-    color: #fff;
-}
-
-.card-login .login_btn:hover {
-    background-color: #ffbf00;
-    color: #fff;
-}
-
 .links {
     color: white;
 }
 
 .links a {
     margin-left: 4px;
-}
-
-@media screen and (max-width: 1024px) {
-    .card-login {
-        width: 80%;
-    }
-
-    .button-submit {
-        width: 150px;
-        margin: auto;
-    }
 }
 
 /* REGISTER */
@@ -637,13 +508,11 @@ footer .text-lg-right a {
     background: #f8f9fa;
 }
 
-@media screen and (max-width: 1024px) {
-    .card-register {
-        width: 80%;
-    }
+/* POST */
+.worshop-section-post {
+    margin-bottom: 100px;
 }
 
-/* POST */
 .img-workshop {
     border-radius: 3px;
     width: 100%;
@@ -679,25 +548,18 @@ footer .text-lg-right a {
     object-position: center;
 }
 
-@media screen and (max-width: 1200px) {
-    .img-workshop {
-        height: 575px;
-    }
-
+.worshop-section-post .comment-widgets {
+    padding: 0px 50px 0px 50px;
 }
 
-@media screen and (max-width: 991px) {
-    .img-workshop {
-        height: 535px;
-    }
-
+.worshop-section-post .comment-widgets .avatar-posts {
+    margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
-    .img-workshop {
-        height: 445px;
-    }
-
+.worshop-section-post .btn-primary {
+    margin: 20px auto 20px auto;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* WHO AM I */
@@ -730,14 +592,6 @@ footer .text-lg-right a {
     left: -30px;
     list-style-type: '-';
 }
-
-@media screen and (max-width: 425px) {
-    .accompagnement {
-        font-size: 22px;
-    }
-}
-
-
 
 /* TRY AGAIN */
 /* HEADER */
@@ -889,32 +743,44 @@ footer .text-lg-right a {
     list-style-type: '- ';
 }
 
-@media(max-width: 1024px) {
-    .workshops-nav .menu ul {
-        display: none;
-    }
+/* ACCOUNT */
 
-    .workshop-section-page .dropdown {
-        display: block;
-        margin-bottom: 30px;
-    }
+.marge-account {
+    height: 90px;
 }
 
-/* ACCOUNT */
-.account-background {
+.post-workshop {
+    margin: 30px 0px 150px 0px;
+}
+
+.profile-account {
+    margin: 50px;
+}
+
+#mytextarea {
+    height: 500px;
+}
+
+.account-background,
+.workshop-registratio-background {
     width: 100%;
     height: 100vh;
-    background: #212529;
     position: fixed;
     top: 0px;
-    z-index: 0;
+    z-index: -1;
+}
+
+.account-background {
+    background: #f8f9fa;
+}
+
+.workshop-registratio-background {
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 2;
 }
 
 .account-section {
-    background: #fff;
-    z-index: 1;
-    position: relative;
-    height: 100%;
+    min-height: 100vh;
 }
 
 .avatar-posts {
@@ -956,7 +822,6 @@ footer .text-lg-right a {
     width: 60%;
     margin: auto;
     border: 1px solid #36393e;
-    background: #e3e3e3;
     border-radius: 0px 0px 3px 3px;
 }
 
@@ -973,11 +838,311 @@ footer .text-lg-right a {
 }
 
 
-.first-dropdown-account, .second-dropdown-account {
+.first-dropdown-account,
+.second-dropdown-account {
     height: 90px;
+}
+☺
+.section-workshop-registration,
+.section-workshops-registrations {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.close-workshop {
+    text-align: right;
+    padding: 10px 15px 0px 0px;
+}
+
+.section-workshop-registration .container,
+.section-workshops-registrations .container {
+    background: #f8f9fa;
+    min-height: 80vh;
+    z-index: 1;
+}
+
+.workshop-registration {
+    padding: 10px;
+    padding-bottom: 0px;
+    max-width: 800px;
+    margin: auto;
+    margin-top: 30px;
+    color: aliceblue;
+    border-bottom: 1px solid #212529;
+}
+
+.workshop-registration:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.workshop-registration:hover > .workshop-link-section {
+    color: #fed136;
+    text-decoration: none;
+}
+
+.section-workshops-registrations .workshop-registration p {
+    color: #212529;
+    font-weight: bold;
+    text-align: center;
+}
+
+.section-workshops-registrations .workshop-registration img {
+    margin-right: 20px;
+}
+
+.section-workshops-registrations .workshop-registration a:hover {
+    color: #fed136;
+    text-decoration: none;
+}
+
+.section-workshops-registrations .workshop-registration a p:hover {
+    color: #fed136;
+}
+
+.link-registrations {
+    position: relative;
+    top: 11px;
+}
+
+.workshop-link-section {
+    text-decoration: none;
+    color: #4d555c;
+
+}
+
+.workshop-registration h2 {
+    margin-bottom: -10px;
+}
+
+.img-workshop-registration {
+    margin-left: 10px;
+    border-radius: 3px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.workshop-unsubscribe {
+    position: relative;
+    top: -10px;
+}
+
+.inscription-avatar {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-workshop-button {
+    margin: auto;
+}
+
+.account-section .btn-primary {
+    margin: 10px;
+    padding: 10px 10px 13px 10px;
+}
+
+.title-post-section-account {
+    margin: 100px 0px 50px 0px;
+}
+
+.img-post-workshop-account {
+    max-width: 500px;
+    margin: auto;
+}
+
+.post-workshop .tox .tox-editor-header {
+    z-index: 0;
+}
+
+.button-account {
+    margin: 50px;
+}
+
+.edit-post-section {
+    margin: 200px;
+}
+
+.header-send-support {
+    margin-top: 50px;
+}
+
+.support-send {
+    width: 50%;
+    margin: 70px auto 10px auto;
+}
+
+/* ERROR */
+.account-error {
+    height: 81vh;
+    background: #f8f9fa;
+}
+
+.error-msg {
+    font-size: 50px;
+    font-weight: bold;
+    padding-top: 30vh;
+}
+
+/* @MEDIA's */
+@media screen and (max-width: 1440px) {
+
+    /* WORKSHOP */
+    .workshop-home {
+        width: 100%;
+    }
+
+    .workshop {
+        width: 90%;
+    }
+
+    /* POST */
+    .img-workshop {
+        height: 575px;
+    }
+
+    /* TRY AGAIN */
+    .workshops-nav .menu ul {
+        display: none;
+    }
+
+    .workshop-section-page .dropdown {
+        display: block;
+        margin-bottom: 30px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+    .img-workshop {
+        height: 575px;
+    }
+
+}
+
+@media(max-width: 1024px) {
+
+    /* HEADER */
+    .logo {
+        position: fixed;
+        top: 0;
+    }
+
+    .main-nav ul {
+        max-height: 0px;
+        background: #212529;
+    }
+
+    .main-nav.black ul,
+    .main-nav.color-black ul {
+        background: #212529;
+    }
+
+    .main-nav .showing {
+        max-height: 34em;
+    }
+
+    nav ul li {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 24px;
+        text-align: center;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    /* WORKSHOP */
+    .workshop-section {
+        padding: 0px 5%;
+        margin: 0px 5%;
+    }
+
+    .workshop-img {
+        margin: auto;
+        height: 250px;
+        width: 100%;
+    }
+
+    .workshop {
+        margin-top: 50px;
+    }
+
+    .workshop-section {
+        margin: 0px 0%;
+        padding: 0px 10%;
+    }
+    
+    /* LOGIN */
+    .card-login {
+        width: 80%;
+    }
+
+    .button-submit {
+        width: 150px;
+        margin: auto;
+    }
+
+    /* REGISTER */
+    .card-register {
+        width: 80%;
+    }
+    
+    /* ACCOUNT */
+    .support-send {
+    width: 80%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+
+    /* HOME POSTS */
+    .img-posts {
+        height: 450px;
+    }
+
+    .posts {
+        width: 382px;
+    }
+
+    /* POSTS */
+    .img-posts {
+        height: 450px;
+    }
+
+    .posts {
+        width: 382px;
+    }
+
+    /* POST */
+    .img-workshop {
+        height: 535px;
+    }
+
+    /* ACCOUNR */
+    .section-workshops-registrations .workshop-registration a p {
+        padding: 10px;
+        border: 3px solid #92989e80;
+        border-radius: 3px;
+    }
+
+    .link-registrations {
+        top: 0px;
+    }
+
 }
 
 @media screen and (max-width: 768px) {
+
+    /* POST */
+    .img-workshop {
+        height: 445px;
+    }
+
+    /* ACCOUNT */
     .section-dropdown-account {
         width: 100%;
     }
@@ -985,14 +1150,57 @@ footer .text-lg-right a {
     .input-img-avatar {
         width: 100% !important;
     }
+
+}
+
+@media screen and (max-width: 575px) {
+
+    /* HOME POSTS */
+    .img-posts {
+        height: 300px;
+    }
+
+    .posts {
+        width: 282px;
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+
+    /* WHO AM I */
+    .accompagnement {
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 406px) {
+
+    /* HOME POSTS */
+    .name-avatar {
+        position: relative;
+        top: -50px;
+        margin-left: 60px;
+    }
+
+    .time-posts {
+        top: -80px;
+        margin-left: 50px;
+    }
+
+    .content-text-posts {
+        top: -80px;
+    }
 }
 
 @media screen and (max-width: 375px) {
+
+    /* ACCOUNT */
     .section-dropdown-account .fa-sort-down {
         font-size: 15px;
     }
-    
-    .section-dropdown-account{
+
+    .section-dropdown-account {
         font-size: 15px;
         padding-top: 5px;
     }

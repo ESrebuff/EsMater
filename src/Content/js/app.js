@@ -1,27 +1,23 @@
 $(function () {
-    // Delete comment
-    let deleteComments = $(".delete-comment");
-    for (let i = 0; i < deleteComments.length; i++) {
-        let deleteComment = deleteComments[i];
-        deleteComment.addEventListener('click', function (e) {
-            e.preventDefault(); // block the default action
-            url = deleteComment.getAttribute('href');
-            deleteComment.innerHTML = "Chargement...";
-            $.ajax({
-                url: url,
-                type: 'GET',
-                success: function (datas) {
-                    let response = datas;
-                    $(".msgId" + response).remove();
-                },
-
-                error: function (jqXHR) {
-                    alert(jqXHR.responseText);
-                }
-            });
-        })
-    }
-
+    new DeleteAjax(".delete-comment", ".msgId");
+    new DeleteAjax(".delete-post", ".postId");
+    new DeleteAjax(".workshop-unsubscribe", ".subscribeId");
+    
+    
+    new WorkshopsSwitch(".workshops-item1", ".workshop-comm1");
+    new WorkshopsSwitch(".workshops-item2", ".workshop-comm2");
+    new WorkshopsSwitch(".workshops-item3", ".workshop-comm3");
+    new WorkshopsSwitch(".workshops-item4", ".workshop-comm4");
+    
+    new Dropdown(".avatar-edit", ".avatar-edit-form", ".first-dropdown-account", 200);
+    new Dropdown(".password-edit", ".password-edit-form", ".second-dropdown-account", 250);
+    
+    new ShowBooked(".show-workshop-registration", ".workshop-registratio-background", ".section-workshop-registration");
+    new ShowBooked(".hide-workshop", ".workshop-registratio-background", ".section-workshop-registration");
+    new ShowBooked(".show-workshops-registrations", ".workshop-registratio-background", ".section-workshops-registrations");
+    new ShowBooked(".hide-workshops", ".workshop-registratio-background", ".section-workshops-registrations");
+    
+    
     // Scrolling Effect
     $(window).on("scroll", function (e) {
         if ($(window).scrollTop()) {
@@ -46,96 +42,14 @@ $(function () {
     });
 
     // Delete FlashMessage
-    $(".close-message").click(function (e) {
-        e.preventDefault(); // block the default action
+    $(window).click(function (e) {
         $(".flash-message").fadeOut(150);
     });
     
+    tinymce.init({
+            selector: '#mytextarea'
+        });
     
-    $(".workshops-item1").click(function (e) {
-        e.preventDefault(); // block the default action
-        $('.workshop-comm1').removeClass('hide');
-        $('.workshop-comm2').addClass('hide');
-        $('.workshop-comm3').addClass('hide');
-        $('.workshop-comm4').addClass('hide');
-        
-        $('.workshops-item1').addClass('main-yellow');
-        $('.workshops-item2').removeClass('main-yellow');
-        $('.workshops-item3').removeClass('main-yellow');
-        $('.workshops-item4').removeClass('main-yellow');
-    });
     
-    $(".workshops-item2").click(function (e) {
-        e.preventDefault(); // block the default action
-        $('.workshop-comm1').addClass('hide');
-        $('.workshop-comm2').removeClass('hide');
-        $('.workshop-comm3').addClass('hide');
-        $('.workshop-comm4').addClass('hide');
-        
-        $('.workshops-item1').removeClass('main-yellow');
-        $('.workshops-item2').addClass('main-yellow');
-        $('.workshops-item3').removeClass('main-yellow');
-        $('.workshops-item4').removeClass('main-yellow');
-    });
-    
-    $(".workshops-item3").click(function (e) {
-        e.preventDefault(); // block the default action
-        $('.workshop-comm1').addClass('hide');
-        $('.workshop-comm2').addClass('hide');
-        $('.workshop-comm3').removeClass('hide');
-        $('.workshop-comm4').addClass('hide');
-        
-        $('.workshops-item1').removeClass('main-yellow');
-        $('.workshops-item2').removeClass('main-yellow');
-        $('.workshops-item3').addClass('main-yellow');
-        $('.workshops-item4').removeClass('main-yellow');
-    });
-    
-    $(".workshops-item4").click(function (e) {
-        e.preventDefault(); // block the default action
-        $('.workshop-comm1').addClass('hide');
-        $('.workshop-comm2').addClass('hide');
-        $('.workshop-comm3').addClass('hide');
-        $('.workshop-comm4').removeClass('hide');
-        
-        $('.workshops-item1').removeClass('main-yellow');
-        $('.workshops-item2').removeClass('main-yellow');
-        $('.workshops-item3').removeClass('main-yellow');
-        $('.workshops-item4').addClass('main-yellow');
-    });
-    
-    $(".avatar-edit").click(function (e) {
-        e.preventDefault(); // block the default action
-        if ($('.avatar-edit-form').hasClass('hide') == true) {
-            $('.first-dropdown-account').animate({height: '250px'}, 200);
-            $('.avatar-edit-form').removeClass('hide');
-        } else {
-            $('.first-dropdown-account').animate({height: '90px'});
-            $('.avatar-edit-form').addClass('hide');
-        }
-
-    });
-
-    $(".password-edit").click(function (e) {
-        e.preventDefault(); // block the default action
-        if ($('.password-edit-form').hasClass('hide') == true) {
-            $('.second-dropdown-account').animate({height: '250px'}, 250);
-            $('.password-edit-form').removeClass('hide');
-        } else {
-            $('.second-dropdown-account').animate({height: '90px'});
-            $('.password-edit-form').addClass('hide');
-        }
-
-    });
     
 });
-
-
-
-
-
-
-
-
-
-

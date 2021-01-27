@@ -37,25 +37,26 @@ if(isset($_SESSION['auth'])){
 
             <form action="<?="index.php?action=register" ?>" method="POST">
                 <div class="form-group">
-                    <input type="text" name="username" class="form-control" placeholder="Pseudo" />
+                    <input type="text" name="username" class="form-control" placeholder="Pseudo *" required />
                 </div>
 
                 <div class="form-group">
-                    <input type="email" name="email" class="form-control" placeholder="Email" />
+                    <input type="email" name="email" class="form-control" placeholder="Email *" required />
                 </div>
 
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe" />
+                    <input type="password" name="password" class="form-control" placeholder="Mot de passe *" required />
                 </div>
 
                 <div class="form-group">
-                    <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer votre mot de passe" />
+                    <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer votre mot de passe *" required />
                 </div>
 
-
                 <div class="form-group">
-                   <div class="button-submit">
-                    <button type="submit" class="btn login_btn"><p>M'inscrire</p></button>
+                    <div class="button-submit">
+                        <button type="submit" class="btn login_btn">
+                            <p>M'inscrire</p>
+                        </button>
                     </div>
                 </div>
             </form>
@@ -82,4 +83,3 @@ if(isset($_SESSION['auth'])){
     </div>
     <div class="marge-register"></div>
 </div>
-

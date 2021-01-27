@@ -14,12 +14,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="<?= $tiny ?>" referrerpolicy="origin"></script>
-    <script>
-        tinymce.init({
-            selector: '#mytextarea'
-        });
-
-    </script>
     <title><?= $title ?></title> <!-- Élément spécifique -->
 </head>
 
@@ -40,6 +34,10 @@
             <!-- Élément spécifique -->
         </div>
 
+    <script type="text/javascript" src="src/Content/js/DeleteAjax.js"></script>
+    <script type="text/javascript" src="src/Content/js/ShowBooked.js"></script>
+    <script type="text/javascript" src="src/Content/js/WorkshopsSwitch.js"></script>
+    <script type="text/javascript" src="src/Content/js/Dropdown.js"></script>
     <script type="text/javascript" src="src/Content/js/app.js"></script>
 </body>
 

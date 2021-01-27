@@ -34,7 +34,7 @@ class ControllerPost {
         $currentPosts = $this->post->paging($start, $postsPerPages);
         $result = $currentPosts->rowCount();
         if($result == 0){
-            $msgError = "Cette page n'existe pas";
+            $msgError = "Cette page n'existe pas ou il n'y a pas d'activité actuellement";
             $view = new \MyApp\View\View("Error");
             $view->generate(array('msgError' => $msgError));
         } else if ($number == 1) {
@@ -76,13 +76,16 @@ class ControllerPost {
                     $idPost = $lastPost['id'];
                     $this->Post($idPost);
                 } else{
-                    $this->tools->flashMessage("danger", "Erreur durant l'importation de votre image", "AddPost");
+                    $_SESSION['flash']['danger'] = "Erreur durant l'importation de votre image";
+                    $this->tools->redirectionAccount($_SESSION["auth"]['id']);
                 }
             } else{
-                $this->tools->flashMessage("danger", "Votre fichier doit être au format jpg, jpeg, gif ou png", "AddPost");
+                $_SESSION['flash']['danger'] = "Votre fichier doit être au format jpg, jpeg, gif ou png";
+                $this->tools->redirectionAccount($_SESSION["auth"]['id']);
             }
         } else{
-            $this->tools->flashMessage("danger", "Votre image ne dois pas dépasser 10Mo", "AddPost");
+            $_SESSION['flash']['danger'] = "Votre image ne dois pas dépasser 10Mo";
+            $this->tools->redirectionAccount($_SESSION["auth"]['id']);
         }
     }
     
@@ -188,8 +191,7 @@ class ControllerPost {
             if($post['user_id'] == $user_id){
             $delete = $this->post->deletePost($idPost);
                 if($delete){
-                    $booking = $this->booking->deleteBooking($idPost);
-                    header('Location: index.php?action=page&number=1');
+                    echo json_decode($idPost);
                 }
             } else {
                 $msgError = "Vous n'avez pas cette autorisation";
@@ -209,12 +211,19 @@ class ControllerPost {
         $mixedId = $strIdPost . $strIdUser;
         $req = $this->booking->getBookedByMixed($mixedId);
         if(!$req){
-            $this->booking->addBooked($idPost, $user['id'], $user['username'], $mixedId, $post['img'], $post['title'], $post['date']);
+            $this->booking->addBooked($idPost, $user['id'], $user['username'], $user['avatar'], $mixedId, $post['img'], $post['title'], $post['date']);
             $_SESSION['flash']['success'] = "Vous êtes maintenant inscris à cette activitée";
             $this->Post($idPost);
         } else {
             $_SESSION['flash']['danger'] = "Vous êtes déjà inscris à cette activitée";
             $this->Post($idPost);
+        }
+    }
+    
+    public function deleteBooking($booking_id){
+        $booking = $this->booking->deleteBooking($booking_id);
+        if($booking) {
+            echo  json_decode($booking_id);
         }
     }
     
