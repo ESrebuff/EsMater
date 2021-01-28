@@ -23,7 +23,7 @@ class ControllerBooked {
                 
             } else {
                 session_start();
-                $_SESSION["flash"]["danger"] = "Erreur imposible de vous y inscrire";
+                $_SESSION["flash"]["danger"] = "Erreur impossible de vous y inscrire";
                 header('Location: index.php');
             }
         }else {

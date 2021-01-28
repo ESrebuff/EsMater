@@ -27,8 +27,8 @@ $tools->sessionOn();
 
 <div class="workshop-header"></div>
 <div class="workshop-text-section">
-    <h1>Communiquation non violante</h1>
-    <p>Retrouvez sur cette pages mes différentes ateliers sur la communiquation non violante</p>
+    <h1>Communication non violente</h1>
+    <p>Retrouvez sur cette page mes différents ateliers sur la communication non violente</p>
 </div>
 
 <div class="workshop-section-page">

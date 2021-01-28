@@ -139,7 +139,7 @@ class ControllerAuth {
         $this->auth->resePasswordAuth($user_id, $passwordHash);
         $user = $this->auth->getAuth($user_id);
         session_start();
-        $_SESSION["flash"]["success"] = "Votre mot de passe a bien été modifier";
+        $_SESSION["flash"]["success"] = "Votre mot de passe a bien été modifié";
         $_SESSION["auth"] = $user;
         $this->tools->redirectionAccount($_SESSION["auth"]['id']);
         exit();
@@ -167,7 +167,7 @@ class ControllerAuth {
     // Add an avatar
     public function addAvatar($img, $authId, $userId){
         $maxSize = 2097152;
-        $ext = strtolower(substr($img['name'],-3));
+        $ext = strtolower(substr(strrchr($img['name'], '.'), 1));
         $allow_ext = array('jpg', 'jpeg',  'gif', 'png');
         if($img['size'] <= $maxSize){
             if(in_array($ext, $allow_ext)){

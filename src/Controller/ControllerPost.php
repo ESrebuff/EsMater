@@ -212,10 +212,10 @@ class ControllerPost {
         $req = $this->booking->getBookedByMixed($mixedId);
         if(!$req){
             $this->booking->addBooked($idPost, $user['id'], $user['username'], $user['avatar'], $mixedId, $post['img'], $post['title'], $post['date']);
-            $_SESSION['flash']['success'] = "Vous êtes maintenant inscris à cette activitée";
+            $_SESSION['flash']['success'] = "Vous êtes maintenant inscrit à cette activité";
             $this->Post($idPost);
         } else {
-            $_SESSION['flash']['danger'] = "Vous êtes déjà inscris à cette activitée";
+            $_SESSION['flash']['danger'] = "Vous êtes déjà inscrit à cette activité";
             $this->Post($idPost);
         }
     }

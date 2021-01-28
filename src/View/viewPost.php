@@ -1,4 +1,4 @@
-<?php $this->title = "Mon Blog - " . $post['title']; 
+<?php $this->title = "EsMater - " . $post['title']; 
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));

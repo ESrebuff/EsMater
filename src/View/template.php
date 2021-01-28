@@ -18,21 +18,21 @@
 </head>
 
 <body data-spy="scroll" id="page-top">
-        <div id="container">
-            <div class="container">
-                <?php if(isset($_SESSION["flash"])): ?>
-                <?php foreach($_SESSION["flash"] as $type => $message): ?>
-                <div class="flash-message alert alert-<?= $type; ?>">
-                    <?= $message; ?>
-                    <a class="close-message text-muted" href=""><i class="fas fa-times"></i></a>
-                </div>
-                <?php endforeach; ?>
-                <?php unset($_SESSION["flash"]); ?>
-                <?php endif; ?>
+    <div id="container">
+        <div class="container">
+            <?php if(isset($_SESSION["flash"])): ?>
+            <?php foreach($_SESSION["flash"] as $type => $message): ?>
+            <div class="flash-message alert alert-<?= $type; ?>">
+                <?= $message; ?>
+                <a class="close-message text-muted" href=""><i class="fas fa-times"></i></a>
             </div>
-            <?= $content ?>
-            <!-- Élément spécifique -->
+            <?php endforeach; ?>
+            <?php unset($_SESSION["flash"]); ?>
+            <?php endif; ?>
         </div>
+        <?= $content ?>
+        <!-- Élément spécifique -->
+    </div>
 
     <script type="text/javascript" src="src/Content/js/DeleteAjax.js"></script>
     <script type="text/javascript" src="src/Content/js/ShowBooked.js"></script>

@@ -1,4 +1,4 @@
-<?php $this->title = "Mon Blog";
+<?php $this->title = "Espace personnel";
 $tools = new \MyApp\Tools\Tools();
 $tools->logged_auth_only();
 $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js";
@@ -34,7 +34,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
     <div class="section-workshop-registration hide">
         <p class="close-workshop"><a href="" class="text-white"><i class="fas fa-times hide-workshop"></i></a></p>
         <div class="container">
-            <h1 class="text-center">Vos prochaines activitées</h1>
+            <h1 class="text-center">Vos prochaines activités</h1>
 
             <?php foreach ($myBookings as $myBooking): ?>
             <div class="workshop-registration subscribeId<?= $myBooking['id'] ?>">
@@ -56,7 +56,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                 <div class="row">
                     <div class="col-lg-6 link-registrations">
                         <a href="">
-                            <p>Nom des l'ateliers</p>
+                            <p>Nom des ateliers</p>
                         </a>
                     </div>
                     <div class="col-lg-6">
@@ -91,7 +91,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
             </div>
             <div class="first-dropdown-account">
                 <div class="section-dropdown-account avatar-edit">
-                    <p>Changer votre photo de profile<i class="fas fa-sort-down"></i></p>
+                    <p>Changer sa photo de profil<i class="fas fa-sort-down"></i></p>
                 </div>
 
                 <div class="account-edit avatar-edit-form hide">
@@ -99,7 +99,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                         <div class="form-group">
                             <input class="form-control input-img-avatar" type="file" name="avatar" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Ajouter une photo de profile</button>
+                        <button type="submit" class="btn btn-primary">Ajouter une photo de profil</button>
                     </form>
                 </div>
             </div>
@@ -122,7 +122,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                 </div>
             </div>
             <div class="button-account">
-                <button class="btn btn-primary btn-xl show-workshop-registration">Voir vos prochaines activitées</button>
+                <button class="btn btn-primary btn-xl show-workshop-registration">Voir vos prochaines activités</button>
                 <?php  if($_SESSION['auth']['role'] == 'admin'){ ?>
                 <button class="btn btn-primary btn-xl show-workshops-registrations">Voir les inscrits</button>
                 <?php } ?>
@@ -147,7 +147,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                 </div>
             </form>
         </div>
-        <h2 class="text-center header-send-support">Envoyer un messages depuis le site</h2>
+        <h2 class="text-center header-send-support">Envoyer un message depuis le site</h2>
         <div class="support-send">
         <form action="<?="index.php?action=sendFromSupport" ?>" method="POST">
             <div class="row align-items-stretch mb-5">

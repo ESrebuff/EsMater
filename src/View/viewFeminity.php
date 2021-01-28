@@ -1,4 +1,4 @@
-<?php $this->title = "Communiquation non violante";
+<?php $this->title = "Atelier féminité et Cercle de Femmes";
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 ?>

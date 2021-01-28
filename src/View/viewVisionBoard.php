@@ -1,4 +1,4 @@
-<?php $this->title = "Communiquation non violante";
+<?php $this->title = "Vision Board";
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 ?>
@@ -33,7 +33,6 @@ $tools->sessionOn();
 <div class="workshop-section-page">
     <div class="workshop-content text-who-am-i">
         <div class="container">
-
             <h2 class="way-from text-center">Ateliers Vision Board</h2>
             <p>L’atelier « Vision board » est parfait pour débuter l’année à venir, il permet de clarifier tous les domaines de sa vie : de sa santé à sa famille, de son couple à sa gestion du temps, de son job à ses activités….</p>
             <p>Quand est-ce qu’on prend le temps de faire un bilan et projeter les envies qui s’accordent à nos valeurs ?</p>

@@ -71,11 +71,11 @@ class Router {
                     if($title && $content) {
                         $this->ctrlPost->addPost($img, $title, $author, $content, $user_id, $user_avatar);
                     } else {
-                        $_SESSION['flash']['danger'] = "Il manque une informations";
+                        $_SESSION['flash']['danger'] = "Il manque une information";
                         $this->redirection();
                 }
                 }else {
-                    $_SESSION['flash']['danger'] = "Vous devez inserez une image";
+                    $_SESSION['flash']['danger'] = "Vous devez insérer une image";
                         $this->redirection();
                 }
             }
@@ -115,7 +115,7 @@ class Router {
                     }
         
                     if(empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']  || strlen($password) < 8){
-                        $errors['password'] = "Vous devez rentrez un mot de passe valide";
+                        $errors['password'] = "Vous devez rentrer un mot de passe valide";
                     }
                     if(empty($errors)){
                         $this->ctrlAuth->register($username, $email, $password);
@@ -210,7 +210,7 @@ class Router {
                             $this->ctrlAuth->resetPassword($_GET['id'], $password);
                         } else {
                             session_start();
-                            $this->tools->flashMessage("danger", "Vous devez rentrez un mot de passe valides", "AddPost");
+                            $this->tools->flashMessage("danger", "Vous devez rentrer un mot de passe valides", "AddPost");
                         }
                     }else {
                         throw new Exception("Une information est manquante");
@@ -226,7 +226,7 @@ class Router {
                     if(isset($_FILES['avatar']) && !empty($_FILES['avatar']['name'])){
                         $this->ctrlAuth->addAvatar($_FILES['avatar'], $_GET['id'], $user['id']);
                     }else {
-                        $_SESSION['flash']['danger'] = "Vous devez selectionner une image";
+                        $_SESSION['flash']['danger'] = "Vous devez sélectionner une image";
                         $this->redirection();
                     }
                 }
@@ -241,7 +241,7 @@ class Router {
                     $user = $_SESSION['auth'];
                     $this->ctrlPost->deleteComment($idComment, $user, $idPost);
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
             
@@ -258,7 +258,7 @@ class Router {
                         throw new Exception("Identifiant de billet non valide");
                     }
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
              
@@ -274,10 +274,10 @@ class Router {
                     if($userComm == $user){
                         $this->ctrlPost->updateComment($content, $idComm, $idPost);   
                     } else {
-                        throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                        throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                     }
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
             
@@ -289,7 +289,7 @@ class Router {
                     $user_id = $_SESSION['auth']['id'];
                     $this->ctrlPost->deletePost($user_id, $idPost);
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
             
@@ -305,7 +305,7 @@ class Router {
                         throw new Exception("Identifiant de billet non valide");
                     }
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
             
@@ -342,7 +342,7 @@ class Router {
                 if(isset($_SESSION["auth"])){
                     $this->ctrlPost->deleteBooking($idBooking);
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accedez à cette page");
+                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                 }
             }
             

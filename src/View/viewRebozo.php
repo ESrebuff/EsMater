@@ -1,4 +1,4 @@
-<?php $this->title = "Communiquation non violante";
+<?php $this->title = "Rituel Rebozo";
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 ?>

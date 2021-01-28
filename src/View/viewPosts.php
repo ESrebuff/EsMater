@@ -1,4 +1,4 @@
-<?php $this->title = "Mon Blog";
+<?php $this->title = "Les activités";
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 ?>
@@ -29,7 +29,7 @@ $tools->sessionOn();
     <div class="main-header-posts">
         <div class="header-text-posts">
             <h1>Les activités</h1>
-            <p>Retrouver toutes les activitées du sites, vous pouvez vous y inscrire, je vous souhaite bonne navigation</p>
+            <p>Retrouver toutes les activités du site, vous pouvez vous y inscrire, je vous souhaite bonne navigation</p>
         </div>
     </div>
     <?php endif; ?>

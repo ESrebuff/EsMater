@@ -1,4 +1,4 @@
-<?php $this->title = "Mon Blog"; 
+<?php $this->title = "Se connecter"; 
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 if(isset($_SESSION['auth'])){

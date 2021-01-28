@@ -56,7 +56,7 @@ if($post) {
                 </a>
                 <div class="text-member">
                     <h4>Patricia Mareau</h4>
-                    <p>Vous pouvez aussi me retrouvez sur facebook et instagram</p>
+                    <p>Vous pouvez aussi me retrouvez sur Facebook et Instagram</p>
                 </div>
                 <p class="social">
                     <a href="https://www.facebook.com/patricia.mareau.37"><img class="reseau facebook" src="src/Content/images/web/facebook.png" alt=""></a>
@@ -85,8 +85,8 @@ if($post) {
                     <div class="workshop">
                         <div class="workshop-img workshop-1"></div>
                         <div class="workshop-text">
-                            <h4>Communication bienveillante</h4>
-                            <p class="text-muted">Communiquation non violante</p>
+                            <h4>Communication Bienveillante</h4>
+                            <p class="text-muted">Communication non violente</p>
                         </div>
                     </div>
                 </a>
@@ -96,7 +96,7 @@ if($post) {
                     <div class="workshop">
                         <div class="workshop-img workshop-2"></div>
                         <div class="workshop-text">
-                            <h4>Atelier féminité</h4>
+                            <h4>Atelier Féminité</h4>
                             <p class="text-muted">Atelier sur le féminin se comprendre</p>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ if($post) {
                     <div class="workshop">
                         <div class="workshop-img workshop-3"></div>
                         <div class="workshop-text">
-                            <h4>Soin rébozo</h4>
+                            <h4>Soin Rébozo</h4>
                             <p class="text-muted">Bien être massage</p>
                         </div>
                     </div>
@@ -118,7 +118,7 @@ if($post) {
                     <div class="workshop">
                         <div class="workshop-img workshop-4"></div>
                         <div class="workshop-text">
-                            <h4>Vision board</h4>
+                            <h4>Vision Board</h4>
                             <p class="text-muted">Ordonnée prise en main</p>
                         </div>
                     </div>
@@ -133,7 +133,7 @@ if($post) {
         <div class="row text-last-post">
             <div class="col-lg-12 col-lg-offset-3 text-center">
                 <h2>Dernière Activité</h2>
-                <p>Vous retrouvez ici la dernière activité proposé, vous pouvez vous y inscrire également</p><br>
+                <p>Vous retrouvez ici la dernière activité proposée, vous pouvez vous y inscrire également</p><br>
             </div>
         </div>
         <div class="row">
@@ -179,7 +179,7 @@ if($post) {
 <div class="errors-register">
     <?php if(!empty($error)): ?>
     <div class="alert alert-danger">
-        <p>Vous n'avez pas remplis le formulaire correctement</p>
+        <p>Vous n'avez pas rempli le formulaire correctement</p>
         <ul>
             <?php foreach($errors as $error): ?>
             <li><?= $error; ?></li>
@@ -191,7 +191,7 @@ if($post) {
 
 <section class="section-contact" id="contact">
     <div class="container">
-        <h2 class="text-center">Nous Contactez</h2>
+        <h2 class="text-center">Nous Contacter</h2>
 
         <form action="<?="index.php?action=sendToSupport" ?>" method="POST">
             <div class="row align-items-stretch mb-5">

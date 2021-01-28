@@ -1,4 +1,4 @@
-<?php $this->title = "Mon Blog"; 
+<?php $this->title = "S'inscrire"; 
 $tools = new \MyApp\Tools\Tools();
 $tools->sessionOn();
 if(isset($_SESSION['auth'])){
@@ -65,7 +65,7 @@ if(isset($_SESSION['auth'])){
         <div class="errors-register">
             <?php if(!empty($errors)): ?>
             <div class="alert alert-danger">
-                <p>Vous n'avez pas remplis le formulaire correctement</p>
+                <p>Vous n'avez pas rempli le formulaire correctement</p>
                 <ul>
                     <?php foreach($errors as $error): ?>
                     <li><?= $error; ?></li>
