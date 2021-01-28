@@ -109,7 +109,7 @@ $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($
                             <input type="text" id="content" class="form-control" name="content" placeholder="Ecrivez votre commentaire ...">
                             <input type="hidden" id="author" name="id" value="<?= $post['id'] ?>" />
                             <div class="row">
-                                <button type="submit" class="btn btn-primary post-workshop-button">Modifier l'atelier</button>
+                                <button type="submit" class="btn btn-primary post-workshop-button">Commenter</button>
                             </div>
                         </div>
                     </div>

@@ -168,7 +168,7 @@ class ControllerAuth {
     public function addAvatar($img, $authId, $userId){
         $maxSize = 2097152;
         $ext = strtolower(substr(strrchr($img['name'], '.'), 1));
-        $allow_ext = array('jpg', 'jpeg',  'gif', 'png');
+        $allow_ext = array('jpg', 'jpeg', 'gif', 'png');
         if($img['size'] <= $maxSize){
             if(in_array($ext, $allow_ext)){
                 $nameImg = $userId . "." . $ext;
@@ -184,21 +184,15 @@ class ControllerAuth {
                         $this->tools->redirectionAccount($_SESSION["auth"]['id']);
                     }
                 } else{
-                    session_start();
-                    $_SESSION["flash"]["danger"] = "Erreur durant l'importation de votre photo de profil";
-                    $_SESSION["auth"] = $user;
+                    $_SESSION['flash']['danger'] = "Erreur durant l'importation de votre photo de profil";
                     $this->tools->redirectionAccount($_SESSION["auth"]['id']);
                 }
             } else{
-                session_start();
-                $_SESSION["flash"]["danger"] = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
-                $_SESSION["auth"] = $user;
+                $_SESSION['flash']['danger'] = "Votre photo de profil doit être au format jpg, jpeg, gif ou png";
                 $this->tools->redirectionAccount($_SESSION["auth"]['id']);
             }
         } else{
-            session_start();
-            $_SESSION["flash"]["danger"] = "Votre photo de profil ne doit pas dépasser 2Mo";
-            $_SESSION["auth"] = $user;
+            $_SESSION['flash']['danger'] = "Votre photo de profil ne doit pas dépasser 2Mo";
             $this->tools->redirectionAccount($_SESSION["auth"]['id']);
         }
     }

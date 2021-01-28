@@ -31,7 +31,7 @@ $tools->sessionOn();
     </div>
 
     <div class="col-lg-10 mx-auto align-items-center">
-        <img class="img-atelier" src="src/Content/images/web/3.jpg" alt="patricia-mareau">
+        <img class="img-workshop" src="src/Content/images/web/portrait-patricia-mareau.jpg" alt="patricia-mareau">
     </div>
 
     <h2 class="way-from text-center">Mon parcours</h2>
