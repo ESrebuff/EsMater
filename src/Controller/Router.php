@@ -359,12 +359,11 @@ class Router {
                         $errors['email'] = "Votre email n'est pas valide";
                     } 
                     if(!empty($errors)){
-                        $this->ctrlPost->lastPost($errors, false, false);
+                        $this->ctrlPost->errorRedirection($errors, false, false);
                     } else {
                         mail('estebanianis@gmail.com', 'Envoi depuis la page de Contact EsMater', 'Prénom : ' . $name . '. Numéro de téléphone : ' . $phone . ' Message : ' . $message , 'From: ' . $email);
                         $errors = false;
-                        $notif = "Votre email à bien été envoyé";
-                        $this->ctrlPost->lastPost($errors, "Home", $notif);
+                        $this->ctrlPost->errorRedirection($errors, "Home", false);
                     }   
                 }
             }
