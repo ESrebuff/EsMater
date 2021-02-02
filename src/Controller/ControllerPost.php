@@ -227,18 +227,22 @@ class ControllerPost {
         }
     }
     
-    public function lastPost($error){
+    public function errorRedirection($error, $page, $notif){
+        if($notif) {
+            $this->tools->sessionOn();
+            $_SESSION['flash']['success'] = $notif;
+        }
         if($error) {
             $lastPost = $this->post->getLastPost();
             $idPost = $lastPost['id'];
             $post = $this->post->getPost($idPost);
-            $view = new \MyApp\View\View("Home");
+            $view = new \MyApp\View\View($page);
             $view->generate(array('post' => $post, 'error' => $error));
         } else {
             $lastPost = $this->post->getLastPost();
             $idPost = $lastPost['id'];
             $post = $this->post->getPost($idPost);
-            $view = new \MyApp\View\View("Home");
+            $view = new \MyApp\View\View($page);
             $view->generate(array('post' => $post));
         } 
         

@@ -166,7 +166,7 @@ class ControllerAuth {
     
     // Add an avatar
     public function addAvatar($img, $authId, $userId){
-        $maxSize = 2097152;
+        $maxSize = 5242880;
         $ext = strtolower(substr(strrchr($img['name'], '.'), 1));
         $allow_ext = array('jpg', 'jpeg', 'gif', 'png');
         if($img['size'] <= $maxSize){
@@ -192,7 +192,7 @@ class ControllerAuth {
                 $this->tools->redirectionAccount($_SESSION["auth"]['id']);
             }
         } else{
-            $_SESSION['flash']['danger'] = "Votre photo de profil ne doit pas dépasser 2Mo";
+            $_SESSION['flash']['danger'] = "Votre photo de profil ne doit pas dépasser 5Mo";
             $this->tools->redirectionAccount($_SESSION["auth"]['id']);
         }
     }

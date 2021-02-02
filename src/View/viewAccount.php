@@ -157,7 +157,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
+                        <textarea class="form-control" type="text" name="message" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

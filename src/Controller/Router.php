@@ -359,11 +359,12 @@ class Router {
                         $errors['email'] = "Votre email n'est pas valide";
                     } 
                     if(!empty($errors)){
-                        $this->ctrlPost->lastPost($errors);
+                        $this->ctrlPost->lastPost($errors, false, false);
                     } else {
                         mail('estebanianis@gmail.com', 'Envoi depuis la page de Contact EsMater', 'Prénom : ' . $name . '. Numéro de téléphone : ' . $phone . ' Message : ' . $message , 'From: ' . $email);
                         $errors = false;
-                        $this->ctrlPost->lastPost($errors);
+                        $notif = "Votre email à bien été envoyé";
+                        $this->ctrlPost->lastPost($errors, "Home", $notif);
                     }   
                 }
             }
@@ -377,11 +378,12 @@ class Router {
                         $errors['email'] = "Votre email n'est pas valide";
                     } 
                     if(!empty($errors)){
-                        $this->ctrlPost->lastPost($errors);
+                        $this->ctrlPost->errorRedirection($errors, false, false);
                     } else {
                         mail($email, "Ceci est un email envoyé depuis la page web EsMater", ' Message : ' . $message , 'From: ' . 'estebanianis@gmail.com');
                         $errors = false;
-                        $this->ctrlPost->lastPost($errors);
+                        $notif = "Votre email à bien été envoyé";
+                        $this->ctrlPost->errorRedirection($errors, "Account", $notif);
                     }   
                 }
             }
@@ -389,8 +391,7 @@ class Router {
         }
 
         else { // No action : Show the home page
-            $errors = false;
-            $this->ctrlPost->lastPost($errors);
+            $this->ctrlPost->errorRedirection(false, "Home", false);
         }
         
     }
