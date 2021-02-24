@@ -1,9 +1,4 @@
-<?php 
-$this->title = "Modifier le commentaire"; 
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
-$date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
-?>
+<?php $this->title = "Modifier le commentaire"; ?>
 <?php if(isset($_SESSION["auth"])): ?>
 <a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Account" ?>">Espace personnel</a>
 <?php else: ?>
@@ -56,10 +51,10 @@ $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($
                 <?php endforeach; ?>
 
                 <?php if(isset($_SESSION["auth"])): ?>
-                <form id="comment-post" method="post" action="index.php?action=updateComment">>
+                <form id="comment-post" method="post" action="index.php?action=updateComment">
                     <div class="row justify-content-center text-center">
                         <div class="col-lg-10 col-10">
-                            <input type="text" id="content" class="form-control" name="content" placeholder="Ecrivez votre commentaire ...">
+                            <input type="text" id="content" class="form-control" name="content" value="<?= $updateComment['content'] ?>">
                             <input type="hidden" id="author" name="id" value="<?= $post['id'] ?>" />
                             <input type="hidden" name="id" value="<?= $updateComment['id'] ?>" />
                             <input type="hidden" name="postId" value="<?= $post['id'] ?>" />

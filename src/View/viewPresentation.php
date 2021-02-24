@@ -1,7 +1,4 @@
-<?php $this->title = "Qui suis-je"; 
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
-?>
+<?php $this->title = "Qui suis-je"; ?>
 
 <nav class="main-nav color-black">
     <div class="menu-icon">

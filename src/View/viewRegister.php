@@ -1,6 +1,4 @@
 <?php $this->title = "S'inscrire"; 
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
 if(isset($_SESSION['auth'])){
     header("Location: index.php?action=toAccount");
 }
@@ -31,7 +29,7 @@ if(isset($_SESSION['auth'])){
 <div class="login-section">
     <div class="card card-register">
         <div class="card-header">
-            <h1>Se connecter</h1>
+            <h1>Crée un compte</h1>
         </div>
         <div class="card-body card-body-login">
 
@@ -43,11 +41,13 @@ if(isset($_SESSION['auth'])){
                 <div class="form-group">
                     <input type="email" name="email" class="form-control" placeholder="Email *" required />
                 </div>
-
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" placeholder="Mot de passe *" required />
+                    <input id="password-register" type="password" name="password" class="form-control" placeholder="Mot de passe *" required />
+                    <p class="text-white">
+                        Le mot de passe dois contenirs :
+                        Au moins <span class="alert-danger" id="size-mdp">8 caractères </span><span class="alert-danger" id="maj-mdp">1 majuscule </span><span class="alert-danger" id="number-mdp">1 chiffre</span>
+                    </p>
                 </div>
-
                 <div class="form-group">
                     <input type="password" name="password_confirm" class="form-control" placeholder="Confirmer votre mot de passe *" required />
                 </div>

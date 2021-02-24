@@ -20,8 +20,10 @@ class ControllerPost {
     public function post($idPost) {
         $post = $this->post->getPost($idPost);
         $comments = $this->comment->getComments($idPost);
+        $this->tools->sessionOn();
+        $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
         $view = new \MyApp\View\View("Post");
-        $view->generate(array('post' => $post, 'comments' => $comments));
+        $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date));
     }
     
   // Paging the post
@@ -33,11 +35,13 @@ class ControllerPost {
         $allPosts = ceil($totalPosts/$postsPerPages);
         $currentPosts = $this->post->paging($start, $postsPerPages);
         $result = $currentPosts->rowCount();
+        $this->tools->sessionOn();
         if($result == 0){
             $msgError = "Cette page n'existe pas ou il n'y a pas d'activité actuellement";
             $view = new \MyApp\View\View("Error");
             $view->generate(array('msgError' => $msgError));
         } else if ($number == 1) {
+            
             $view = new \MyApp\View\View("Posts");
             $view->generate(array('posts' => $currentPosts, 'allPosts' => $allPosts, 'number' => $number));
         } else {
@@ -94,6 +98,8 @@ class ControllerPost {
         $post = $this->post->getPost($idPost);
         if($post){
             if($post['user_id'] == $user_id){
+                $this->tools->logged_auth_only();
+                $this->tools->admin_only();
                 $view = new \MyApp\View\View("EditPost");
                 $view->generate(array('post' => $post));
             }
@@ -170,8 +176,12 @@ class ControllerPost {
             if($updateComment['user_id'] == $user_id){
                 $post = $this->post->getPost($idPost);
                 $comments = $this->comment->getComments($idPost);
+                $this->tools->sessionOn();
+                $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
                 $view = new \MyApp\View\View("EditComment");
-                $view->generate(array('post' => $post, 'comments' => $comments, 'updateComment' => $updateComment));
+                $view->generate(array('post' => $post, 'comments' => $comments, 'updateComment' => $updateComment, 'date' => $date));
+            } else {
+                $this->Post($idPost);
             }
         } else{
             $this->Post($idPost);
@@ -191,6 +201,7 @@ class ControllerPost {
             if($post['user_id'] == $user_id){
             $delete = $this->post->deletePost($idPost);
                 if($delete){
+                    $this->booking->deleteBookings($idPost);
                     echo json_decode($idPost);
                 }
             } else {
@@ -236,6 +247,7 @@ class ControllerPost {
             $lastPost = $this->post->getLastPost();
             $idPost = $lastPost['id'];
             $post = $this->post->getPost($idPost);
+            $$this->tools->logged_auth_only();
             $view = new \MyApp\View\View($page);
             $view->generate(array('post' => $post, 'error' => $error));
         } else {
@@ -243,7 +255,12 @@ class ControllerPost {
             $idPost = $lastPost['id'];
             $post = $this->post->getPost($idPost);
             $view = new \MyApp\View\View($page);
-            $view->generate(array('post' => $post));
+            if($post) {
+                $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
+                $view->generate(array('post' => $post, 'date' => $date));
+            } else {
+                $view->generate(array('post' => $post));
+            }
         } 
         
     }

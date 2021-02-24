@@ -1,6 +1,4 @@
-<?php $this->title = "Erreur";
-$tools = new \MyApp\Tools\Tools();
-?>
+<?php $this->title = "Erreur"; ?>
 
 <nav class="main-nav color-black">
     <div class="menu-icon">
@@ -14,15 +12,16 @@ $tools = new \MyApp\Tools\Tools();
             <li><a href="index.php?action=linkView&swicthTo=Presentation">Qui suis-je</a></li>
             <li><a href="index.php?action=page&number=1">Les activités</a></li>
             <?php if(isset($_SESSION["auth"])): ?>
-            <li><a class="main-yellow" href="index.php?action=toAccount">Espace personnel</a></li>
+            <li><a href="<?= "index.php?action=toAccount" ?>">Espace personnel</a></li>
             <?php else: ?>
             <li><a href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a></li>
-            <li><a href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a></li>
+            <li><a class="main-yellow" href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a></li>
             <?php endif; ?>
             <li><a href="index.php#contact">Contact</a></li>
         </ul>
     </div>
 </nav>
+
 <!-- Pensez a recuperer l'image de l'avatar dans le booking a surtout l'inserez -->
 <div class="marge-account"></div>
 <div class="account-error">

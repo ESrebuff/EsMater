@@ -1,7 +1,4 @@
-<?php $this->title = "Rituel Rebozo";
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
-?>
+<?php $this->title = "Rituel Rebozo"; ?>
 <!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">

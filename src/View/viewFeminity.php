@@ -1,7 +1,4 @@
-<?php $this->title = "Atelier féminité et Cercle de Femmes";
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
-?>
+<?php $this->title = "Atelier féminité et Cercle de Femmes"; ?>
 <!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">

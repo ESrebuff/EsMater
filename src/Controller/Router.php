@@ -13,13 +13,14 @@ class Router {
     $this->ctrlPost = new \MyApp\Controller\ControllerPost();
     $this->ctrlAuth = new \MyApp\Controller\ControllerAuth();
     $this->tools = new \MyApp\Tools\Tools();
-      
   }
+    
 // Redirection to a account page
     public function redirection(){
         $this->tools->sessionOn();
         if(isset($_SESSION['auth'])){
             $userId = $_SESSION['auth']['id'];
+            $this->tools->logged_auth_only();
             $this->tools->redirectionAccount($userId);
         }
     }
@@ -47,14 +48,18 @@ class Router {
             
             // Comment a post
             else if ($_GET['action'] == 'comment') {
-                $this->tools->sessionOn();
-                $auth = $_SESSION["auth"];
-                $author = $this->getParameter($auth, 'username');
-                $content = htmlspecialchars($_POST['content']);
-                $user_id = $this->getParameter($auth, 'id');
-                $user_avatar = $this->getParameter($auth, 'avatar');
-                $idPost = htmlspecialchars($_POST['id']);
-                $this->ctrlPost->comment($author, $content, $idPost, $user_id, $user_avatar);    
+                if(!empty($_POST['content'])){
+                    $this->tools->sessionOn();
+                    $auth = $_SESSION["auth"];
+                    $author = $this->getParameter($auth, 'username');
+                    $content = htmlspecialchars($_POST['content']);
+                    $user_id = $this->getParameter($auth, 'id');
+                    $user_avatar = $this->getParameter($auth, 'avatar');
+                    $idPost = htmlspecialchars($_POST['id']);
+                    $this->ctrlPost->comment($author, $content, $idPost, $user_id, $user_avatar);  
+                } else {
+                    header('Location: index.php?action=post&id='.$_GET['idPost'].'');
+                }  
             }
             
             // Add a post
@@ -114,7 +119,7 @@ class Router {
                         $errors['email'] = "Cet email est déjà utilisé";
                     }
         
-                    if(empty($_POST['password']) || $_POST['password'] != $_POST['password_confirm']  || strlen($password) < 8){
+                    if(empty($password) || $password != $_POST['password_confirm']  || strlen($password) < 8 || !preg_match('/[0-9]+/', $password)  || !preg_match('/[A-Z]+/', $password)){
                         $errors['password'] = "Vous devez rentrer un mot de passe valide";
                     }
                     if(empty($errors)){
@@ -140,6 +145,7 @@ class Router {
             else if ($_GET['action'] == 'linkView') {
                 $page = $_GET['swicthTo'];
                 $view = new \MyApp\View\View($page);
+                $this->tools->sessionOn();
                 $view->generate(array());
             }
             
@@ -201,22 +207,23 @@ class Router {
                 }
             }
             
-                        // Reset the password in case of forgotten
+            // Reset the password in case of forgotten
             else if ($_GET['action'] == 'reset') {
                 if(!empty($_POST)){
-                    if(!empty($_POST['password']) && $_POST['password'] == $_POST['password_confirm']){
-                        if(strlen($_POST['password']) < 8){
-                            $password = htmlspecialchars($_POST['password']);
-                            $this->ctrlAuth->resetPassword($_GET['id'], $password);
-                        } else {
-                            session_start();
-                            $this->tools->flashMessage("danger", "Vous devez rentrer un mot de passe valides", "AddPost");
+                    $password = htmlspecialchars($_POST['password']);
+                    $password_confirm = htmlspecialchars($_POST['password_confirm']);
+                    if($password == $password_confirm){
+                        if(empty($password) || $password != $_POST['password_confirm']  || strlen($password) < 8 || !preg_match('/[0-9]+/', $password)  || !preg_match('/[A-Z]+/', $password)){
+                            throw new Exception("Vous devez rentrer un mot de passe valide");
                         }
-                    }else {
-                        throw new Exception("Une information est manquante");
+                        else {
+                            $this->ctrlAuth->resetPassword($_GET['id'], $password);
+                        } 
+                    }
+                } else {
+                    throw new Exception("Une information est manquante");
                     }
                 }
-            }
             
             // Add a avatar img
             else if ($_GET['action'] == 'avatar'){
@@ -264,20 +271,26 @@ class Router {
              
             // Send the comment after the updating and redirect to the page
             else if ($_GET['action'] == 'updateComment') {
-                $this->tools->sessionOn();
                 $content = htmlspecialchars($_POST['content']);
-                $userComm = htmlspecialchars($_POST['user_id']);
-                $idComm = htmlspecialchars($_POST['id']);
+                $userId = htmlspecialchars($_POST['user_id']);
+                $idComment = htmlspecialchars($_POST['id']);
                 $idPost = htmlspecialchars($_POST['postId']);
-                if(isset($_SESSION["auth"]) &&  $_SESSION["auth"]["role"] == "admin"){
-                $user = $_SESSION["auth"]['id'];
-                    if($userComm == $user){
-                        $this->ctrlPost->updateComment($content, $idComm, $idPost);   
+                $this->tools->sessionOn();
+                $user = $_SESSION["auth"];
+                if(!empty($content)) {
+                    if(isset($_SESSION["auth"]) &&  $_SESSION["auth"]["role"] == "admin"){
+                        if($userId == $user['id']){
+                            $this->ctrlPost->updateComment($content, $idComment, $idPost);   
+                        } else {
+                            throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
+                        }
                     } else {
                         throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                     }
                 } else {
-                    throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
+                    //header('Location: index.php?action=post&id='.$_GET['idPost'].'');
+                    $this->ctrlPost->deleteComment($idComment, $user, $idPost);
+                    $this->ctrlPost->post($idPost);
                 }
             }
             
@@ -390,6 +403,7 @@ class Router {
         }
 
         else { // No action : Show the home page
+            $this->tools->sessionOn();
             $this->ctrlPost->errorRedirection(false, "Home", false);
         }
         
@@ -402,6 +416,7 @@ class Router {
 
 // Show error
 private function error($msgError) {
+    $this->tools->sessionOn();
     $view = new \MyApp\View\View("Error");
     $view->generate(array('msgError' => $msgError));
 }

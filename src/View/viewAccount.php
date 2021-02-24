@@ -1,6 +1,4 @@
 <?php $this->title = "Espace personnel";
-$tools = new \MyApp\Tools\Tools();
-$tools->logged_auth_only();
 $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js";
 ?>
 
@@ -54,10 +52,8 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
             <?php  if($_SESSION['auth']['role'] == 'admin'){ ?>
             <div class="workshop-registration">
                 <div class="row">
-                    <div class="col-lg-6 link-registrations">
-                        <a href="">
-                            <p>Nom des ateliers</p>
-                        </a>
+                    <div class="col-lg-6">
+                        <p>Nom des ateliers</p>
                     </div>
                     <div class="col-lg-6">
                         <p>Nom des l'inscris</p>

@@ -24,7 +24,7 @@
             <?php foreach($_SESSION["flash"] as $type => $message): ?>
             <div class="flash-message alert alert-<?= $type; ?>">
                 <?= $message; ?>
-                <a class="close-message text-muted" href=""><i class="fas fa-times"></i></a>
+                <p class="close-message text-muted" href=""><i class="fas fa-times"></i></p>
             </div>
             <?php endforeach; ?>
             <?php unset($_SESSION["flash"]); ?>

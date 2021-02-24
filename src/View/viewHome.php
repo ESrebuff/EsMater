@@ -1,10 +1,4 @@
-<?php $this->title = "EsMater Accueil";
-$tools = new \MyApp\Tools\Tools();
-$tools->sessionOn();
-if($post) {
-    $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));   
-}
-?>
+<?php $this->title = "EsMater Accueil"; ?>
 <!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">
@@ -35,7 +29,6 @@ if($post) {
         <p>Facilitatrice en communication</p>
     </div>
 </div>
-
 
 <div class="team">
     <div class="container">
@@ -75,7 +68,7 @@ if($post) {
     <div class="row">
         <div class="main-text-workshop col-lg-12 col-lg-offset-3 text-center">
             <h2>Les Ateliers</h2>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus </p><br>
+            <p>Vous trouverez ici la présentation des différents ateliers que je propose</p><br>
         </div>
     </div>
     <div class="workshop-home">
@@ -205,7 +198,7 @@ if($post) {
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group mb-md-0">
-                        <input class="form-control" type="tel" name="phone" placeholder="Votre téléphone *" required="required" data-validation-required-message="Sil-Vous plaît entre votre numéro.">
+                        <input class="form-control" type="tel" name="phone" placeholder="Votre téléphone" data-validation-required-message="Sil-Vous plaît entre votre numéro.">
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

@@ -22,7 +22,7 @@ class Auth extends Model {
      
     // Register the user with the Username Email Mdp And add a Token, send a verify email
     public function registerAuth($username, $email, $password, $token){
-        $sql = 'insert into esmater_esmater_users(username, email, password, confirmation_token, avatar)' . ' values(:username, :email, :password, :confirmation_token, :avatar)';
+        $sql = 'insert into esmater_users(username, email, password, confirmation_token, avatar)' . ' values(:username, :email, :password, :confirmation_token, :avatar)';
         $this->executeRequest($sql, array('username' => $username, 'email' => $email, 'password' => $password, 'confirmation_token' => $token, 'avatar' => "default.jpg"));
         $sql = 'SELECT MAX(id) as id' . ' FROM esmater_users' ;
         $user= $this->executeRequest($sql);
