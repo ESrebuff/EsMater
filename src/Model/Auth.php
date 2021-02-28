@@ -5,7 +5,13 @@ namespace MyApp\Model;
 require_once 'Model.php';
 
 class Auth extends Model {
-        
+    // Get password and try    
+    public function getPassword($username){
+        $sql = 'SELECT * ' . ' FROM esmater_users' . ' WHERE (username = :username OR email = :email) AND confirmed_at IS NOT NULL';
+        $req = $this->executeRequest($sql, array('username' => $username, 'email' => $username));
+        return $req->fetch();
+    }
+    
     // Get id by username
     public function usernameIsUniqAuth($username){
         $sql = 'SELECT id ' . ' FROM esmater_users' . ' WHERE username = :username';
@@ -28,7 +34,7 @@ class Auth extends Model {
         $user= $this->executeRequest($sql);
         $lastFetch = $user->fetch();
         $user_id = $lastFetch['id'];
-        mail($email, 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://localhost/projets/Reorganisation/EsMater/index.php?action=confirm&id=$user_id&token=$token");
+        mail($email, 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://localhost/projets/freshClone/EsMater/index.php?action=confirm&id=$user_id&token=$token");
     }
     
     // If the link by email been used, get the user in parameter
@@ -59,34 +65,13 @@ class Auth extends Model {
     public function loginUserAuth($username, $password){
         $sql = 'SELECT * ' . ' FROM esmater_users' . ' WHERE (username = :username OR email = :email) AND confirmed_at IS NOT NULL';
         $user = $this->executeRequest($sql, array('username' => $username, 'email' => $username));
-        $findUser = $user->fetch();
-        if($findUser){
-            if(password_verify($_POST['password'], $findUser['password'])){
-                return $findUser;
-            } else{
-                return $findUser = false;
-            }
-        }return $findUser = false;
+        return $user->fetch();
     }
     
     // Modify the mdp
     public function updatePasswordAuth($user_id, $password){
         $sql = 'UPDATE esmater_users SET password = :password ' . ' WHERE id = :id';
         $this->executeRequest($sql, array('password' => $password, 'id' => $user_id));  
-    }
-    
-    // Get the user by the username or email
-    public function sendTokenRemember($username, $password){
-        $sql = 'SELECT * ' . ' FROM esmater_users' . ' WHERE (username = :username OR email = :email) AND confirmed_at IS NOT NULL';
-        $user = $this->executeRequest($sql, array('username' => $username, 'email' => $username));
-        $findUser = $user->fetch();
-        if($findUser){
-            if(password_verify($_POST['password'], $findUser['password'])){
-                return $findUser;
-            } else{
-                return $findUser = false;
-            }
-        }return $findUser = false;
     }
     
     // Get user by email then send a email

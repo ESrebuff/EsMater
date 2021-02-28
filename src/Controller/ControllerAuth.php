@@ -27,6 +27,30 @@ class ControllerAuth {
         return password_hash($_POST['password'], PASSWORD_BCRYPT);
     }
     
+    // Get the password and verify if it match
+    public function tryPassword($password, $username){
+        $match = null;
+        $passwordHashed = $this->auth->getPassword($username);
+        if($passwordHashed){
+            if(password_verify($password, $passwordHashed['password'])){
+                return $match = true;
+            } else {
+                return $match = false;
+            }  
+        }
+    }
+    
+    
+    public function trylol($password, $username){
+        $lol = $this->tryPassword($password, $username);
+        if($lol){
+            echo "lol";
+        } else {
+            echo "not lol";
+        }
+    }
+    
+    
     // Verify the username
     public function usernameIsUniq($username){
         if($this->auth->usernameIsUniqAuth($username)){
@@ -75,11 +99,10 @@ class ControllerAuth {
     
     // Login the user
     public function loginUser($username, $password, $remember){
-        $user = $this->auth->loginUserAuth($username, $password);
-        $this->tools->sessionOn();
-        if(!$user){
-            $this->tools->flashMessage("danger", "Identifiant ou mot de passe incorrecte", "Login");
-        }else {
+        $match = $this->tryPassword($password, $username);
+        if($match){
+            $user = $this->auth->loginUserAuth($username, $password);
+            $this->tools->sessionOn();
             if($remember){
                 $_SESSION["flash"]["success"] = "Vous êtes maintenant connecté";
                 $_SESSION["auth"] = $user;
@@ -92,7 +115,9 @@ class ControllerAuth {
                 $_SESSION["flash"]["success"] = "Vous êtes maintenant connecté";
                 $_SESSION["auth"] = $user;
                 $this->tools->redirectionAccount($_SESSION["auth"]['id']);
-                }
+            }
+        } else {
+            $this->tools->flashMessage("danger", "Identifiant ou mot de passe incorrecte", "Login");
         }
     }
 
@@ -113,7 +138,7 @@ class ControllerAuth {
         }else {
             $reset_token = $this->random(60);
             $this->auth->resetToken($reset_token, $user['id']);
-            mail($email, 'Réinitialisation de votre mot de passe', "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhost/projets/Reorganisation/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token");
+            mail($email, 'Réinitialisation de votre mot de passe', "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhost/projets/freshClone/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token");
             $this->tools->flashMessage("success", "Un email pour réinitialiser votre mot de passe à bien été envoyé", "Login");
         }
     }

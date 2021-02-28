@@ -41,22 +41,33 @@
             </div>
             <p><?= $post['content'] ?></p>
             <p class="text-center text-muted"><?= $date ?></p>
-
-
-
-            <?php if(isset($_SESSION["auth"])): ?>
-            <div class="row">
+                
+       <?php
+        if(isset($_SESSION["auth"])){
+            if($booking){
+                ?>
+                <div class="row">
+                <a href="index.php?action=booked&id=<?= $post['id'] ?>">Vous êtes déjà inscrit</a>
+                </div>
+                <?php
+            } else {
+                ?>
+                <div class="row">
                 <a href="index.php?action=booked&id=<?= $post['id'] ?>">S'inscrire à l'activité</a>
-            </div>
-            <?php else: ?>
+                </div>
+            <?php
+            }
+        } else {
+            ?>
             <div class="justify-content-center text-center">
                 <div class="alert alert-danger">
                     Vous devez être connecté pour pouvoir vous inscrire
                     <a href="index.php?action=linkView&swicthTo=Login" class="text-end">Se connecter</a>
                 </div>
             </div>
-            <?php endif; ?>
-
+            <?php
+        }
+        ?>
         </div>
     </div>
 

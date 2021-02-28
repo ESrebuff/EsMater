@@ -12,12 +12,6 @@ $(function () {
     new Dropdown(".avatar-edit", ".avatar-edit-form", ".first-dropdown-account", 200);
     new Dropdown(".password-edit", ".password-edit-form", ".second-dropdown-account", 250);
 
-    new ShowBooked(".show-workshop-registration", ".workshop-registratio-background", ".section-workshop-registration");
-    new ShowBooked(".hide-workshop", ".workshop-registratio-background", ".section-workshop-registration");
-    new ShowBooked(".show-workshops-registrations", ".workshop-registratio-background", ".section-workshops-registrations");
-    new ShowBooked(".hide-workshops", ".workshop-registratio-background", ".section-workshops-registrations");
-
-
     // Scrolling Effect
     $(window).on("scroll", function (e) {
         if ($(window).scrollTop()) {
@@ -85,5 +79,5 @@ $(function () {
 
     tinymce.init({
         selector: '#mytextarea'
-    });
+    });   
 });

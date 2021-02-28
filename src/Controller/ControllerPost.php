@@ -20,10 +20,22 @@ class ControllerPost {
     public function post($idPost) {
         $post = $this->post->getPost($idPost);
         $comments = $this->comment->getComments($idPost);
+        $date = $this->tools->date($post);
         $this->tools->sessionOn();
-        $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
-        $view = new \MyApp\View\View("Post");
-        $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date));
+        if(isset($_SESSION['auth'])){
+            $user = $_SESSION['auth'];
+            $booking = $this->booking->getBookedByMixed($idPost . $user['id']);
+            if($booking){
+                $view = new \MyApp\View\View("Post");
+                $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date, 'booking' => $booking));
+            } else {
+                $view = new \MyApp\View\View("Post");
+                $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date, 'booking' => $booking));
+            }
+        } else {
+            $view = new \MyApp\View\View("Post");
+            $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date));
+        }
     }
     
   // Paging the post
@@ -177,7 +189,7 @@ class ControllerPost {
                 $post = $this->post->getPost($idPost);
                 $comments = $this->comment->getComments($idPost);
                 $this->tools->sessionOn();
-                $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
+                $date = $this->tools->date($post);
                 $view = new \MyApp\View\View("EditComment");
                 $view->generate(array('post' => $post, 'comments' => $comments, 'updateComment' => $updateComment, 'date' => $date));
             } else {
@@ -201,7 +213,6 @@ class ControllerPost {
             if($post['user_id'] == $user_id){
             $delete = $this->post->deletePost($idPost);
                 if($delete){
-                    $this->booking->deleteBookings($idPost);
                     echo json_decode($idPost);
                 }
             } else {
@@ -256,7 +267,7 @@ class ControllerPost {
             $post = $this->post->getPost($idPost);
             $view = new \MyApp\View\View($page);
             if($post) {
-                $date = date('Y/m/d ', strtotime($post['date'])) . "à " . date('H', strtotime($post['date'])) . "h" . date('m', strtotime($post['date']));
+                $date = $this->tools->date($post);
                 $view->generate(array('post' => $post, 'date' => $date));
             } else {
                 $view->generate(array('post' => $post));

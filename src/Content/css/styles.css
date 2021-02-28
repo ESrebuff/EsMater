@@ -1,3 +1,34 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@ESrebuff 
+ESrebuff
+/
+EsMater
+1
+00
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+EsMater/src/Content/css/styles.css
+@ESrebuff
+ESrebuff Modification
+Latest commit 78a5df2 3 days ago
+ History
+ 1 contributor
+1207 lines (974 sloc)  18.3 KB
+  
 /* GENERAL */
 html,
 body {
@@ -744,7 +775,6 @@ footer .text-lg-right a {
 }
 
 /* ACCOUNT */
-
 .marge-account {
     height: 90px;
 }
@@ -759,28 +789,6 @@ footer .text-lg-right a {
 
 #mytextarea {
     height: 500px;
-}
-
-.account-background,
-.workshop-registratio-background {
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0px;
-    z-index: -1;
-}
-
-.account-background {
-    background: #f8f9fa;
-}
-
-.workshop-registratio-background {
-    background: rgba(0, 0, 0, 0.9);
-    z-index: 2;
-}
-
-.account-section {
-    min-height: 100vh;
 }
 
 .avatar-posts {
@@ -837,102 +845,9 @@ footer .text-lg-right a {
     padding-top: 9px !important;
 }
 
-
 .first-dropdown-account,
 .second-dropdown-account {
     height: 90px;
-}
-
-.section-workshop-registration,
-.section-workshops-registrations {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.close-workshop {
-    text-align: right;
-    padding: 10px 15px 0px 0px;
-}
-
-.section-workshop-registration .container,
-.section-workshops-registrations .container {
-    background: #f8f9fa;
-    min-height: 80vh;
-    z-index: 1;
-}
-
-.workshop-registration {
-    padding: 10px;
-    padding-bottom: 0px;
-    max-width: 800px;
-    margin: auto;
-    margin-top: 30px;
-    color: aliceblue;
-    border-bottom: 1px solid #212529;
-}
-
-.workshop-registration:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-.workshop-registration:hover > .workshop-link-section {
-    color: #fed136;
-    text-decoration: none;
-}
-
-.section-workshops-registrations .workshop-registration p {
-    color: #212529;
-    font-weight: bold;
-    text-align: center;
-}
-
-.section-workshops-registrations .workshop-registration img {
-    margin-right: 20px;
-}
-
-.section-workshops-registrations .workshop-registration a:hover {
-    color: #fed136;
-    text-decoration: none;
-}
-
-.section-workshops-registrations .workshop-registration a p:hover {
-    color: #fed136;
-}
-
-.link-registrations {
-    position: relative;
-    top: 11px;
-}
-
-.workshop-link-section {
-    text-decoration: none;
-    color: #4d555c;
-
-}
-
-.workshop-registration h2 {
-    margin-bottom: -10px;
-}
-
-.img-workshop-registration {
-    margin-left: 10px;
-    border-radius: 3px;
-    height: 100px;
-    object-fit: cover;
-}
-
-.workshop-unsubscribe {
-    position: relative;
-    top: -10px;
-}
-
-.inscription-avatar {
-    height: 50px;
-    width: 50px;
-    object-fit: cover;
-    object-position: center;
 }
 
 .post-workshop-button {
@@ -972,6 +887,29 @@ footer .text-lg-right a {
 .support-send {
     width: 50%;
     margin: 70px auto 10px auto;
+}
+
+/* ACCOUNT MODAL*/
+
+.my-bookings img {
+    max-height: 300px;
+    max-width: 300px;
+}
+
+
+.all-bookings {
+    margin: 20px;
+}
+
+.all-bookings .img-avatar {
+    margin-top: 20px;
+    max-height: 80px;
+    max-width: 80px;
+}
+
+.all-bookings .img-post {
+    max-height: 180px;
+    max-width: 180px;
 }
 
 /* ERROR */
@@ -1120,17 +1058,6 @@ footer .text-lg-right a {
     /* POST */
     .img-workshop {
         height: 535px;
-    }
-
-    /* ACCOUNR */
-    .section-workshops-registrations .workshop-registration a p {
-        padding: 10px;
-        border: 3px solid #92989e80;
-        border-radius: 3px;
-    }
-
-    .link-registrations {
-        top: 0px;
     }
 
 }

@@ -35,7 +35,6 @@
     </div>
 
     <script type="text/javascript" src="src/Content/js/DeleteAjax.js"></script>
-    <script type="text/javascript" src="src/Content/js/ShowBooked.js"></script>
     <script type="text/javascript" src="src/Content/js/WorkshopsSwitch.js"></script>
     <script type="text/javascript" src="src/Content/js/Dropdown.js"></script>
     <script type="text/javascript" src="src/Content/js/app.js"></script>

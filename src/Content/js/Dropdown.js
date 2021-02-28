@@ -16,7 +16,7 @@ class Dropdown {
             e.preventDefault(); // block the default action
             if ($(formTarget).hasClass('hide') == true) {
                 $(dropDown).animate({
-                    height: '250px'
+                    height: '350px'
                 }, time);
                 $(formTarget).removeClass('hide');
             } else {

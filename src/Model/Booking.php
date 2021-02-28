@@ -47,12 +47,6 @@ class Booking extends Model {
         return $req;
     }
     
-    public function deleteBookings($idPost){
-        $sql = 'DELETE FROM esmater_booking' . ' WHERE post_id = :post_id';
-        $req = $this->executeRequest($sql, array('post_id' => $idPost));
-        return $req;
-    }
-    
     public function deleteBooking($idBooking){
         $sql = 'DELETE FROM esmater_booking' . ' WHERE id = :id';
         $req = $this->executeRequest($sql, array('id' => $idBooking));

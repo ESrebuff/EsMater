@@ -178,14 +178,24 @@ class Router {
             // Update the password
             else if ($_GET['action'] == 'updatePassword') {
                 if(!empty($_POST)){
+                    $oldPassword = htmlspecialchars($_POST['oldPassword']);
                     $password = htmlspecialchars($_POST['password']);
                     $password_confirm = htmlspecialchars($_POST['password_confirm']);
                     $this->tools->sessionOn();
-                    if(empty($password) || $password != $password_confirm || strlen($password) < 8){
-                        $_SESSION['flash']['danger'] = "Les mots de passes ne correspondent pas";
+                    $username = $_SESSION['auth']['username'];
+                    $user_id = $_SESSION['auth']['id'];
+                    $verifyPassWord = $this->ctrlAuth->tryPassword($oldPassword, $username);
+                    if($verifyPassWord){
+                        if(empty($password) || $password != $_POST['password_confirm']  || strlen($password) < 8 || !preg_match('/[0-9]+/', $password)  || !preg_match('/[A-Z]+/', $password)){
+                            $_SESSION['flash']['danger'] = "Les mot de passe ne corespondant pas ou ne sont pas valide";
+                            $this->redirection();
+                        }
+                        else {
+                            $this->ctrlAuth->resetPassword($user_id, $password);
+                        }
+                    } else {
+                        $_SESSION['flash']['danger'] = "Votre mot de passe n'est pas valide";
                         $this->redirection();
-                    }else {
-                        $this->ctrlAuth->updatePassword($_SESSION["auth"]['id'], $password);
                     }
                 }
             }
@@ -288,7 +298,6 @@ class Router {
                         throw new Exception("Vous n'avez pas le droit d'accéder à cette page");
                     }
                 } else {
-                    //header('Location: index.php?action=post&id='.$_GET['idPost'].'');
                     $this->ctrlPost->deleteComment($idComment, $user, $idPost);
                     $this->ctrlPost->post($idPost);
                 }
@@ -310,7 +319,7 @@ class Router {
             else if ($_GET['action'] == 'editPost') {
                 $this->tools->sessionOn();
                 $idPost = intval($this->getParameter($_GET, 'id'));
-                if(isset($_SESSION['auth'])){
+                if(isset($_SESSION['auth']) &&  $_SESSION["auth"]["role"] == "admin"){ 
                     $user_id = $_SESSION['auth']['id'];
                     if ($idPost != 0) {
                         $this->ctrlPost->editPost($idPost, $user_id);
@@ -359,8 +368,6 @@ class Router {
                 }
             }
             
-            
-            // 
             else if ($_GET['action'] == 'sendToSupport') {
                 if(!empty($_POST)){
                     $errors = array();
@@ -388,7 +395,7 @@ class Router {
                     $message = htmlspecialchars($_POST['message']);
                     if(empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
                         $errors['email'] = "Votre email n'est pas valide";
-                    } 
+                    }
                     if(!empty($errors)){
                         $this->ctrlPost->errorRedirection($errors, false, false);
                     } else {

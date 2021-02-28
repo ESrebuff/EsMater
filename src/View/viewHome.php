@@ -147,18 +147,6 @@
                                     <a class="link link-posts" href="<?= "index.php?action=post&id=" . $post['id'] ?>"><?= $post['title'] ?></a>
                                 </h4>
                             </div>
-                            <div class="center">
-                                <?php 
-                                if(isset($_SESSION["auth"])){
-                                    if($_SESSION["auth"]["role"] == "admin"){
-                                    ?>
-                                <a href="index.php?action=editPost&id=<?= $post['id'] ?>">Modifier</a>
-                                <a class="text-danger" href="index.php?action=deletePost&id=<?= $post['id'] ?>">Supprimer</a>
-                                <?php
-                                    }
-                                }                   
-                                ?>
-                            </div>
                         </div>
 
                     </div>
