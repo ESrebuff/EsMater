@@ -18,7 +18,7 @@ if(isset($_SESSION['auth'])){
             <?php if(isset($_SESSION["auth"])): ?>
             <li><a href="<?= "index.php?action=toAccount" ?>">Espace personnel</a></li>
             <?php else: ?>
-            <li><a class="main-yellow" href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a></li>
+            <li><a href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a></li>
             <li><a href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a></li>
             <?php endif; ?>
             <li><a href="index.php#contact">Contact</a></li>

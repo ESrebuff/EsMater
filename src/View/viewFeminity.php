@@ -1,5 +1,4 @@
 <?php $this->title = "Atelier féminité et Cercle de Femmes"; ?>
-<!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>

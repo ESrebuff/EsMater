@@ -1,5 +1,5 @@
 <?php $this->title = "Modifier l'atelier";
-$this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js";
+$this->tiny = "<script src='https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>";
 ?>
 <nav class="main-nav color-black">
     <div class="menu-icon">
@@ -44,4 +44,4 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
             </div>
         </form>
     </div>
-
+</div>

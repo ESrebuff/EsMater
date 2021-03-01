@@ -1,5 +1,5 @@
 <?php $this->title = "Espace personnel";
-$this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js";
+$this->tiny = "<script src='https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>";
 ?>
 
 <nav class="main-nav color-black">
@@ -28,11 +28,11 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
 
 <?php if($_SESSION["auth"]["role"] === "admin" ) { ?>
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="registrations" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="registrations" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Les inscrits a vos activités</h5>
+                <h5 class="modal-title">Les inscrits a vos activités</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -76,7 +76,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
 <?php } ?>
 
 <!-- MODAL MY BOOKINGS -->
-<div class="modal fade bd-example-modal-lg" id="registration" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="registration" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -93,7 +93,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                     <a class="link" href="index.php?action=post&id=<?= $myBooking['post_id'] ?>">
                         <h2 class="text-center"><?= $myBooking['title'] ?></h2>
                     </a>
-                    <a href="index.php?action=post&id=<?= $myBooking['post_id'] ?>"><img class="rounded mx-auto d-block" src="src/Content/images/posts/<?=$myBooking['img'] ?>"></a>
+                    <a href="index.php?action=post&id=<?= $myBooking['post_id'] ?>"><img alt="booking" class="rounded mx-auto d-block" src="src/Content/images/posts/<?=$myBooking['img'] ?>"></a>
                     <br>
                     <p class="text-center"><a class="workshop-unsubscribe" href="index.php?action=deleteBooking&id=<?= $myBooking['id'] ?>">Se désinscrire</a></p>
                 </div>
@@ -193,7 +193,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" type="text" name="message" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
+                        <textarea class="form-control" name="message" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>

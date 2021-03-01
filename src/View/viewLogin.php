@@ -3,7 +3,6 @@ if(isset($_SESSION['auth'])){
     header("Location: index.php?action=toAccount");
 }
 ?>
-
 <nav class="main-nav color-black">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>
@@ -44,9 +43,7 @@ if(isset($_SESSION['auth'])){
                 </div>
                 <div class="form-group">
                     <div class="button-submit">
-                        <button type="submit" class="btn login_btn">
-                            <p>Se connecter</p>
-                        </button>
+                        <button type="submit" class="btn login_btn">Se connecter</button>
                     </div>
                 </div>
             </form>

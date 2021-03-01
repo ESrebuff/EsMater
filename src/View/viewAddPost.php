@@ -1,5 +1,5 @@
 <?php $this->title = "Crée un Atelier";
-$this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js";
+$this->tiny = "<script src='https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb97vjebkax/tinymce/5/tinymce.min.js' referrerpolicy='origin'></script>";
 $tools = new \MyApp\Tools\Tools();
 $tools->logged_auth_only();
 $tools->admin_only()

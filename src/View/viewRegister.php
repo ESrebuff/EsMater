@@ -54,9 +54,7 @@ if(isset($_SESSION['auth'])){
 
                 <div class="form-group">
                     <div class="button-submit">
-                        <button type="submit" class="btn login_btn">
-                            <p>M'inscrire</p>
-                        </button>
+                        <button type="submit" class="btn login_btn">M'inscrire</button>
                     </div>
                 </div>
             </form>

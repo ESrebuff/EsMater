@@ -1,10 +1,25 @@
 <?php $this->title = "Modifier le commentaire"; ?>
-<?php if(isset($_SESSION["auth"])): ?>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Account" ?>">Espace personnel</a>
-<?php else: ?>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a>
-<a class="link link-posts" href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a>
-<?php endif; ?>
+<nav class="main-nav color-black">
+    <div class="menu-icon">
+        <i class="fa fa-bars fa-2x"></i>
+    </div>
+    <div class="logo">
+        <a href="index.php">EsMater</a>
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a href="index.php?action=linkView&swicthTo=Presentation">Qui suis-je</a></li>
+            <li><a class="main-yellow" href="index.php?action=page&number=1">Les activités</a></li>
+            <?php if(isset($_SESSION["auth"])): ?>
+            <li><a href="index.php?action=toAccount">Espace personnel</a></li>
+            <?php else: ?>
+            <li><a href="<?= "index.php?action=linkView&swicthTo=Login" ?>">Se connecter</a></li>
+            <li><a href="<?= "index.php?action=linkView&swicthTo=Register" ?>">Crée un compte</a></li>
+            <?php endif; ?>
+            <li><a href="index.php#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
 <div class="worshop-section-post">
     <div class="container marge-top-posts">
@@ -23,7 +38,7 @@
                     <h6 class="name-author-post"><?= $post['author'] ?></h6>
                 </div>
             </div>
-            <p><?= $post['content'] ?></p>
+            <div><?= $post['content'] ?></div>
             <p class="text-center text-muted"><?= $date ?></p>
         </div>
     </div>

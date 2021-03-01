@@ -139,13 +139,16 @@ class ControllerPost {
                             }
                         $this->Post($postId);
                     } else{
-                        $this->tools->flashMessage("danger", "Erreur durant l'importation de votre image", "AddPost");
+                        $_SESSION['flash']['danger'] = "Erreur durant l'importation de votre image";
+                        header("Location: index.php?action=editPost&id={$postId}");
                     }
                 } else{
-                    $this->tools->flashMessage("danger", "Votre fichier doit être au format jpg, jpeg, gif ou png", "AddPost");
+                    $_SESSION['flash']['danger'] = "Votre fichier doit être au format jpg, jpeg, gif ou png";
+                    header("Location: index.php?action=editPost&id={$postId}");
                 }
             } else{
-                $this->tools->flashMessage("danger", "Votre image ne dois pas dépasser 10Mo", "AddPost");
+                $_SESSION['flash']['danger'] = "Votre image ne dois pas dépasser 10Mo";
+                header("Location: index.php?action=editPost&id={$postId}");
             }
         
         }

@@ -1,5 +1,4 @@
 <?php $this->title = "EsMater Accueil"; ?>
-<!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>
@@ -130,7 +129,7 @@
             </div>
         </div>
         <div class="row">
-            <a class="style-link-none" href="<?= "index.php?action=post&id=" . $post['id'] ?>">
+            <a class="style-link-none last-post-link" href="<?= "index.php?action=post&id=" . $post['id'] ?>">
                 <div class="col-lg-12 mb-12">
                     <div class="posts">
                         <img class="img-posts" src="src/Content/images/posts/<?= $post['img'] ?>" alt="">
@@ -139,13 +138,11 @@
                                 <img class="rounded-circle avatar-posts" src="src/Content/images/avatars/<?= $post['user_avatar'] ?>" alt="avatar">
                                 <div class="row style-link-none">
                                     <p class="name-avatar col-lg-12 mb-4 style-link-none"><?= $post['author'] ?></p>
-                                    <time class="time-posts col-lg-12 mb-4 style-link-none"><?= $date ?></time>
+                                    <p class="time-posts col-lg-12 mb-4 style-link-none"><?= $date ?></p>
                                 </div>
                             </div>
                             <div class="content-text-posts">
-                                <h4 class="card-title">
-                                    <a class="link link-posts" href="<?= "index.php?action=post&id=" . $post['id'] ?>"><?= $post['title'] ?></a>
-                                </h4>
+                                <h4 class="card-title link"><?= $post['title'] ?></h4>
                             </div>
                         </div>
 
@@ -192,7 +189,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group form-group-textarea mb-md-0">
-                        <textarea class="form-control" type="text" name="message" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
+                        <textarea class="form-control" name="message" placeholder="Votre message *" required="required" data-validation-required-message="Sil-Vous plaît écrivez votre message."></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                 </div>
@@ -222,4 +219,4 @@
     </div>
 </footer>
 
-<script type="text/javascript" src="src/Content/js/nav.js"></script>
+<script src="src/Content/js/nav.js"></script>

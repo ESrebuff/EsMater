@@ -272,6 +272,10 @@ h6 {
     padding: 120px 0px 120px 0px;
 }
 
+.last-post .last-post-link {
+    margin: auto;
+}
+
 .text-last-post {
     margin-bottom: 50px;
 }
@@ -423,7 +427,7 @@ footer .text-lg-right a {
 .card-login {
     top: 80px;
     margin: auto;
-    max-height: auto;
+    height: auto;
     width: 50%;
     background-color: rgba(33, 37, 41, 0.9) !important;
 }
@@ -493,7 +497,7 @@ footer .text-lg-right a {
 .card-register {
     top: 80px;
     margin: auto;
-    max-height: auto;
+    height: auto;
     width: 50%;
     background-color: rgba(33, 37, 41, 0.9) !important;
 }
@@ -573,10 +577,6 @@ footer .text-lg-right a {
 
 .way-from {
     margin: 50px;
-}
-
-.accompagnement {
-    425
 }
 
 .text-who-am-i {

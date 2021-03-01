@@ -1,5 +1,4 @@
 <?php $this->title = "Communiquation non violante"; ?>
-<!--  Ici la nav-bar en full noir  -->
 <nav class="main-nav">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>
@@ -43,7 +42,7 @@
                         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Faire défiler
                             <span class="sr-only">Action</span>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="menu">
+                        <div class="dropdown-menu">
                             <a class="dropdown-item workshops-item1" href="#">L'ateliers spécial ado</a>
                             <a class="dropdown-item workshops-item2" href="#">Atelier Faber et Mazlish : Parler pour que les enfants écoutent,<br /> écouter pour qu’ils vous parlent</a>
                             <a class="dropdown-item workshops-item3" href="#">Atelier Faber et Mazlish : Jalousies et rivalités entre frères et sœurs</a>

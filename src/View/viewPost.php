@@ -1,5 +1,4 @@
 <?php $this->title = "EsMater - " . $post['title']; ?>
-
 <nav class="main-nav color-black">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>
@@ -39,7 +38,7 @@
                     <h6 class="name-author-post"><?= $post['author'] ?></h6>
                 </div>
             </div>
-            <p><?= $post['content'] ?></p>
+            <div><?= $post['content'] ?></div>
             <p class="text-center text-muted"><?= $date ?></p>
                 
        <?php

@@ -13,8 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="<?= $tiny ?>" referrerpolicy="origin"></script>
-    <title><?= $title ?></title> <!-- Élément spécifique -->
+    <?= $tiny ?>
+    <title><?= $title ?></title>
 </head>
 
 <body data-spy="scroll" id="page-top">
@@ -31,13 +31,12 @@
             <?php endif; ?>
         </div>
         <?= $content ?>
-        <!-- Élément spécifique -->
     </div>
 
-    <script type="text/javascript" src="src/Content/js/DeleteAjax.js"></script>
-    <script type="text/javascript" src="src/Content/js/WorkshopsSwitch.js"></script>
-    <script type="text/javascript" src="src/Content/js/Dropdown.js"></script>
-    <script type="text/javascript" src="src/Content/js/app.js"></script>
+    <script src="src/Content/js/DeleteAjax.js"></script>
+    <script src="src/Content/js/WorkshopsSwitch.js"></script>
+    <script src="src/Content/js/Dropdown.js"></script>
+    <script src="src/Content/js/app.js"></script>
 </body>
 
 </html>

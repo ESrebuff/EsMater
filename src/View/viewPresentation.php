@@ -1,5 +1,4 @@
 <?php $this->title = "Qui suis-je"; ?>
-
 <nav class="main-nav color-black">
     <div class="menu-icon">
         <i class="fa fa-bars fa-2x"></i>
