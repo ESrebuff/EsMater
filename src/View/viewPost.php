@@ -61,7 +61,7 @@
             ?>
             <div class="justify-content-center text-center">
                 <div class="alert alert-danger">
-                    Vous devez être connecté pour pouvoir vous inscrire
+                    Vous devez être connecté pour pouvoir vous inscrire a l'activité
                     <a href="index.php?action=linkView&swicthTo=Login" class="text-end">Se connecter</a>
                 </div>
             </div>

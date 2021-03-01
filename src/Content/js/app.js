@@ -77,6 +77,9 @@ $(function () {
         }
     });
 
+    let date = new Date().getFullYear();
+    $(".date-copyright").html(date);
+    
     tinymce.init({
         selector: '#mytextarea'
     });   

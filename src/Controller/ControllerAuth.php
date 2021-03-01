@@ -40,7 +40,6 @@ class ControllerAuth {
         }
     }
     
-    
     public function trylol($password, $username){
         $lol = $this->tryPassword($password, $username);
         if($lol){
@@ -49,7 +48,6 @@ class ControllerAuth {
             echo "not lol";
         }
     }
-    
     
     // Verify the username
     public function usernameIsUniq($username){

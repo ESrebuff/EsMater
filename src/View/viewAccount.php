@@ -66,7 +66,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <?php endforeach; ?>
             </div>
 
@@ -86,7 +86,9 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                 </button>
             </div>
             <div class="modal-body container">
-                <?php foreach ($myBookings as $myBooking): ?>
+
+                <?php if($myBookings){
+                foreach ($myBookings as $myBooking): ?>
                 <div class="my-bookings subscribeId<?= $myBooking['id'] ?>">
                     <a class="link" href="index.php?action=post&id=<?= $myBooking['post_id'] ?>">
                         <h2 class="text-center"><?= $myBooking['title'] ?></h2>
@@ -95,7 +97,13 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                     <br>
                     <p class="text-center"><a class="workshop-unsubscribe" href="index.php?action=deleteBooking&id=<?= $myBooking['id'] ?>">Se désinscrire</a></p>
                 </div>
-                <?php endforeach; ?>
+                <?php endforeach; 
+            } else { ?>
+                <h2 class="text-center">Vous n'avez pas d'inscription</h2>
+                <p class="text-center">
+                    <a class="link" href="index.php?action=page&number=1">Vous trouverez ici les dernières activités</a>
+                </p>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -138,7 +146,7 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
                     <div class="form-group">
                         <input id="password-register" type="password" name="password" class="form-control" placeholder="Nouveau mot de passe *" required />
                         <p>
-                            Le mot de passe dois contenirs :
+                            Le mot de passe doit contenir :
                             Au moins <span class="alert-danger" id="size-mdp">8 caractères </span><span class="alert-danger" id="maj-mdp">1 majuscule </span><span class="alert-danger" id="number-mdp">1 chiffre</span>
                         </p>
                     </div>
@@ -199,5 +207,4 @@ $this->tiny = "https://cdn.tiny.cloud/1/r5mrv1noxmieyps0077inllwqbdi2iwzmlsn9kb9
     <?php } ?>
     <p class="text-right"><a href="<?= "index.php?action=logout" ?>">Se déconnecter</a></p>
 
-</div>
 </div>

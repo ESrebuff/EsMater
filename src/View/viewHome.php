@@ -49,7 +49,7 @@
                 </a>
                 <div class="text-member">
                     <h4>Patricia Mareau</h4>
-                    <p>Vous pouvez aussi me retrouvez sur Facebook et Instagram</p>
+                    <p>Vous pouvez aussi me retrouver sur Facebook et Instagram</p>
                 </div>
                 <p class="social">
                     <a href="https://www.facebook.com/patricia.mareau.37"><img class="reseau facebook" src="src/Content/images/web/facebook.png" alt=""></a>
@@ -209,7 +209,7 @@
 <footer class="footer py-2">
     <div class="container text-center">
         <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+            <div class="col-lg-4 text-lg-left">Copyright © Your Website <span class="date-copyright"></span></div>
             <div class="col-lg-4 my-3">
                 <a class="btn btn-dark btn-social mx-2 rounded-circle" href="https://www.facebook.com/patricia.mareau.37"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2 rounded-circle" href="https://www.instagram.com/mareaupatricia/?hl=fr"><i class="fab fa-instagram"></i></a>

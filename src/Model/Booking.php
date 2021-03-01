@@ -27,7 +27,7 @@ class Booking extends Model {
     public function getMyBookings($userId){
         $sql = 'SELECT * ' . ' FROM esmater_booking' . ' WHERE user_id = :user_id';
         $myBookings = $this->executeRequest($sql, array('user_id' => $userId));
-        return $myBookings;
+        return $myBookings->fetchAll();
     }
     
     public function addBooked($idPost, $userId, $username, $user_avatar, $mixed, $img, $title, $date){

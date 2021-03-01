@@ -36,7 +36,7 @@ if(isset($_SESSION['auth'])){
                 <div class="form-group">
                     <input id="password-register" type="password" name="password" class="form-control" placeholder="Mot de passe *" required />
                     <p class="text-white">
-                        Le mot de passe dois contenirs :
+                        Le mot de passe doit contenir :
                         Au moins <span class="alert-danger" id="size-mdp">8 caractères </span><span class="alert-danger" id="maj-mdp">1 majuscule </span><span class="alert-danger" id="number-mdp">1 chiffre</span>
                     </p>
                 </div>
