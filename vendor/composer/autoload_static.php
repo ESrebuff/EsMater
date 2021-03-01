@@ -7,6 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit2bb3a7cb4de086c4de3224acde486c46
 {
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'M' => 
         array (
             'MyApp\\' => 6,
@@ -14,6 +18,10 @@ class ComposerStaticInit2bb3a7cb4de086c4de3224acde486c46
     );
 
     public static $prefixDirsPsr4 = array (
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
         'MyApp\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
@@ -22,19 +30,6 @@ class ComposerStaticInit2bb3a7cb4de086c4de3224acde486c46
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'MyApp\\Controller\\ControllerAuth' => __DIR__ . '/../..' . '/src/Controller/ControllerAuth.php',
-        'MyApp\\Controller\\ControllerAvatar' => __DIR__ . '/../..' . '/src/Controller/ControllerAvatar.php',
-        'MyApp\\Controller\\ControllerBooked' => __DIR__ . '/../..' . '/src/Controller/ControllerBooked.php',
-        'MyApp\\Controller\\ControllerHome' => __DIR__ . '/../..' . '/src/Controller/ControllerHome.php',
-        'MyApp\\Controller\\ControllerLinkView' => __DIR__ . '/../..' . '/src/Controller/ControllerLinkView.php',
-        'MyApp\\Controller\\ControllerPost' => __DIR__ . '/../..' . '/src/Controller/ControllerPost.php',
-        'MyApp\\Controller\\Router' => __DIR__ . '/../..' . '/src/Controller/Router.php',
-        'MyApp\\Model\\Auth' => __DIR__ . '/../..' . '/src/Model/Auth.php',
-        'MyApp\\Model\\Booking' => __DIR__ . '/../..' . '/src/Model/Booking.php',
-        'MyApp\\Model\\Comment' => __DIR__ . '/../..' . '/src/Model/Comment.php',
-        'MyApp\\Model\\Model' => __DIR__ . '/../..' . '/src/Model/Model.php',
-        'MyApp\\Model\\Post' => __DIR__ . '/../..' . '/src/Model/Post.php',
-        'MyApp\\View\\View' => __DIR__ . '/../..' . '/src/View/View.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

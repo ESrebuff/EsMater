@@ -28,7 +28,6 @@ class Router {
   // Processes an incoming request
   public function routerRequest() {
     try {
-        
         if(isset($_COOKIE['remember']) && !isset($_SESSION['auth'])){
             $remember_token = $_COOKIE['remember'];
             $this->ctrlAuth->loginByRememberToken($remember_token);        
@@ -381,9 +380,12 @@ class Router {
                     if(!empty($errors)){
                         $this->ctrlPost->errorRedirection($errors, false, false);
                     } else {
-                        mail('estebanianis@gmail.com', 'Envoi depuis la page de Contact EsMater', 'Prénom : ' . $name . '. Numéro de téléphone : ' . $phone . ' Message : ' . $message , 'From: ' . $email);
-                        $errors = false;
-                        $this->ctrlPost->errorRedirection($errors, "Home", false);
+                        $mail = new \MyApp\Tools\FunctionMail();
+                        $subject = "Envoi depuis la page de Contact EsMater";
+                        $messageContent = "<strong>Prénom</strong> : " . $name . ".</br> <strong>Numéro de téléphone</strong> : " . $phone . ".</br> <strong>Message</strong> :</br>" . $message;
+                        $sender = $email;
+                        $mail->getmail($subject, $messageContent, $sender);
+                        $this->ctrlPost->errorRedirection(false, "Home", false);
                     }   
                 }
             }
@@ -399,10 +401,14 @@ class Router {
                     if(!empty($errors)){
                         $this->ctrlPost->errorRedirection($errors, false, false);
                     } else {
-                        mail($email, "Ceci est un email envoyé depuis la page web EsMater", ' Message : ' . $message , 'From: ' . 'estebanianis@gmail.com');
-                        $errors = false;
+                        $mail = new \MyApp\Tools\FunctionMail();
+                        $subject = "Ceci est un email envoyé depuis la page web EsMater par l'un de nos administrateur";
+                        $messageContent = "<strong>Message</strong> :</br>" . $message;
+                        $sender = $email;
+                        $mail->sendmail($subject, $messageContent, $sender);
+        
                         $notif = "Votre email à bien été envoyé";
-                        $this->ctrlPost->errorRedirection($errors, "Account", $notif);
+                        $this->ctrlPost->errorRedirection(false, "Account", $notif);
                     }   
                 }
             }

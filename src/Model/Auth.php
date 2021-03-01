@@ -32,9 +32,7 @@ class Auth extends Model {
         $this->executeRequest($sql, array('username' => $username, 'email' => $email, 'password' => $password, 'confirmation_token' => $token, 'avatar' => "default.jpg"));
         $sql = 'SELECT MAX(id) as id' . ' FROM esmater_users' ;
         $user= $this->executeRequest($sql);
-        $lastFetch = $user->fetch();
-        $user_id = $lastFetch['id'];
-        mail($email, 'Confirmation de votre compte', "Afin de valider votre compte merci de cliquer sur ce lien\n\nhttp://localhost/projets/freshClone/EsMater/index.php?action=confirm&id=$user_id&token=$token");
+        return $lastFetch = $user->fetch();
     }
     
     // If the link by email been used, get the user in parameter

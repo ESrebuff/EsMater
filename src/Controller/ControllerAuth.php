@@ -69,7 +69,13 @@ class ControllerAuth {
     public function register($username, $email, $password){
         $password = $this->hashPassword($password);
         $token = $this->random(60);
-        $this->auth->registerAuth($username, $email, $password, $token);
+        $user = $this->auth->registerAuth($username, $email, $password, $token);
+        $user_id = $user['id'];
+        $mail = new \MyApp\Tools\FunctionMail();
+        $subject = "La page web EsMater Confirmation de votre compte";
+        $messageContent = "Afin de valider votre compte merci de cliquer sur ce lien : <a href='http://localhost/projets/freshClone/EsMater/index.php?action=confirm&id=$user_id&token=$token'>Cliquer ici</a>";
+        $sender = $email;
+        $mail->sendmail($subject, $messageContent, $sender);
         $this->tools->sessionOn();
         $this->tools->flashMessage("success", "Un email de confirmation vous a été envoyé pour valider votre compte", "Login");
     }
@@ -136,7 +142,11 @@ class ControllerAuth {
         }else {
             $reset_token = $this->random(60);
             $this->auth->resetToken($reset_token, $user['id']);
-            mail($email, 'Réinitialisation de votre mot de passe', "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien\n\nhttp://localhost/projets/freshClone/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token");
+            $mail = new \MyApp\Tools\FunctionMail();
+            $subject = "La page web EsMater Réinitialisation de votre mot de passe";
+            $messageContent = "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien : <a href='http://localhost/projets/freshClone/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token'>Cliquer ici</a>";
+            $sender = $email;
+            $mail->sendmail($subject, $messageContent, $sender);
             $this->tools->flashMessage("success", "Un email pour réinitialiser votre mot de passe à bien été envoyé", "Login");
         }
     }
