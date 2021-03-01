@@ -55,9 +55,7 @@
                     <a href="https://www.instagram.com/mareaupatricia/?hl=fr"><img class="reseau instagram" src="src/Content/images/web/instagram.png" alt=""></a>
                 </p>
             </div>
-            <!--col-lg-4 -->
-
-        </div> <!-- row text-center -->
+        </div>
 
     </div>
 

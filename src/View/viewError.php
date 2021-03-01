@@ -21,14 +21,12 @@
     </div>
 </nav>
 
-<!-- Pensez a recuperer l'image de l'avatar dans le booking a surtout l'inserez -->
 <div class="marge-account"></div>
 <div class="account-error">
-<div class="container">
-<p class="text-center error-msg text-danger">Une erreur est survenue : <?= $msgError ?></p>
+    <div class="container">
+        <p class="text-center error-msg text-danger">Une erreur est survenue : <?= $msgError ?></p>
+    </div>
 </div>
-</div>
-
 
 <footer class="footer py-2">
     <div class="container text-center">

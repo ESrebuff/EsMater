@@ -4,48 +4,48 @@ namespace MyApp\View;
 use Exception;
 class View{
     
-  // Nom du fichier associé à la vue
+  // Name of the file associated with the view
   private $fileData;
       
-  // Titre de la vue (défini dans le fichier vue)
+  // View title (defined in the view file)
   private $title;
   private $tiny;
  
   public function __construct($action) {
       
-    // Détermination du nom du fichier vue à partir de l'action
+    // Determining the name of the file seen from the action
     $this->fileData = "src/View/view" . $action . ".php";
   }
 
-  // Génère et affiche la vue
+  // Generate and display the view
   public function generate($data) {
       
-    // Génération de la partie spécifique de la vue
+    // Generation of the specific part of the view
     $content = $this->generateFile($this->fileData, $data);
       
-    // Génération du gabarit commun utilisant la partie spécifique
+    // Generation of the common template using the specific part
     $view = $this->generateFile('src/View/template.php',
       array('title' => $this->title, 'tiny' => $this->tiny, 'content' => $content));
       
-    // Renvoi de la vue au navigateur
+    // Returning the view to the browser
     echo $view;
   }
 
-  // Génère un fichier vue et renvoie le résultat produit
+  // Generate a view file and return the result produced
   private function generateFile($fileData, $data) {
     if(file_exists($fileData)) {
         
-      // Rend les éléments du tableau $donnees accessibles dans la vue
+      // Makes the elements of the $ data array accessible in the view
       extract($data);
         
-      // Démarrage de la temporisation de sortie
+      // Start of exit delay
       ob_start();
         
-      // Inclut le fichier vue
-      // Son résultat est placé dans le tampon de sortie
+      // Include view file
+      // Its result is placed in the output buffer
       require $fileData;
         
-      // Arrêt de la temporisation et renvoi du tampon de sortie
+      // Stopping the timer and resending the output buffer
       return ob_get_clean();
     }
     else {

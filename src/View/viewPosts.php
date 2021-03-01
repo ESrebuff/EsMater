@@ -85,8 +85,7 @@
                     echo '<li class="page-item">
                                 <a class="page-link" href="index.php?action=page&number='.$i.'">'.$i.' </a>
                             </li>
-                            ';
-                            
+                            '; 
                 }; ?>
             </ul>
 

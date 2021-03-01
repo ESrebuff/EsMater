@@ -105,7 +105,7 @@
                     </div>
                     <hr />
                     <br>
-                </div> <!-- Card -->
+                </div>
                 <?php endforeach; ?>
 
                 <?php if(isset($_SESSION["auth"])): ?>
