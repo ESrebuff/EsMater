@@ -34,11 +34,12 @@ class Router {
         }
         
         if(isset($_GET['action'])) {
-            
             // Get the post
             if ($_GET['action'] == 'post') {
                 $idPost = intval($this->getParameter($_GET, 'id'));
-                if ($idPost != 0) {
+                $post = $this->post = new \MyApp\Model\Post();
+                $existPost = $post->getPost($idPost);
+                if ($existPost) {
                     $this->ctrlPost->post($idPost);
                 }
                 else
@@ -287,7 +288,7 @@ class Router {
                 $this->tools->sessionOn();
                 $user = $_SESSION["auth"];
                 if(!empty($content)) {
-                    if(isset($_SESSION["auth"]) &&  $_SESSION["auth"]["role"] == "admin"){
+                    if(isset($_SESSION["auth"])){
                         if($userId == $user['id']){
                             $this->ctrlPost->updateComment($content, $idComment, $idPost);   
                         } else {

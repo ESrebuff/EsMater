@@ -15,8 +15,8 @@ class FunctionMail {
             $mail->isSMTP();                                          // Send using SMTP
             $mail->Host = 'smtp.ionos.fr';                            // Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-            $mail->Username = 'esmater@esteban-rebuffe-mareau.fr';    // SMTP username
-            $mail->Password = 'S+3XL5/AgF7Y7-(y';                     // SMTP password
+            $mail->Username = 'esmaterwebsite@esteban-rebuffe-mareau.fr';    // SMTP username
+            $mail->Password = '4v3U8~xA&';                     // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;       // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port = 587;                                        // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
@@ -54,14 +54,14 @@ class FunctionMail {
             $mail->isSMTP();                                          // Send using SMTP
             $mail->Host = 'smtp.ionos.fr';                            // Set the SMTP server to send through
             $mail->SMTPAuth = true;                                   // Enable SMTP authentication
-            $mail->Username = 'esmater@esteban-rebuffe-mareau.fr';    // SMTP username
-            $mail->Password = 'S+3XL5/AgF7Y7-(y';                     // SMTP password
+            $mail->Username = 'esmaterwebsite@esteban-rebuffe-mareau.fr';    // SMTP username
+            $mail->Password = '4v3U8~xA&';                     // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;       // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
             $mail->Port = 587;                                        // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
             //Recipients
             $mail->setFrom($sender, 'Client EsMater');
-            $mail->addAddress('esmater@esteban-rebuffe-mareau.fr');
+            $mail->addAddress('esmaterwebsite@esteban-rebuffe-mareau.fr');
 
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML

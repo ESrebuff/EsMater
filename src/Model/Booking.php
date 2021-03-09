@@ -36,14 +36,14 @@ class Booking extends Model {
     }
     
     public function updateBookingAndImg($title, $img, $idPost){
-        $sql = 'UPDATE esmater_booking SET title = :title, img = :img' . 'WHERE post_id = :post_id';
-        $req = $this->executeRequest($sql, array('title' => $title, 'img' => $img, 'post_id' => $idPost));
+        $sql = 'UPDATE esmater_booking SET title = ?, img = ?' . 'WHERE post_id = ?';
+        $req = $this->executeRequest($sql, array($title, $img, $idPost));
         return $req;
     }
     
     public function updateBooking($title, $idPost){
-        $sql = 'UPDATE esmater_booking SET title = :title' . 'WHERE post_id = :post_id';
-        $req = $this->executeRequest($sql, array('title' => $title, 'post_id' => $idPost));
+        $sql = 'UPDATE esmater_booking SET title = ?' . 'WHERE post_id = ?';
+        $req = $this->executeRequest($sql, array($title, $idPost));
         return $req;
     }
     

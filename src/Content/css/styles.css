@@ -468,17 +468,11 @@ footer .text-lg-right a {
 .card-register .login_btn,
 .card-login .login_btn {
     color: #fff;
-    font-size: 25px;
+    font-size: 20px;
     background-color: #fed136;
     width: 150px;
     margin-top: 20px;
-}
-
-.card-register .login_btn p,
-.card-login .login_btn p {
-    font-weight: bold;
-    font-size: 20px;
-    margin: 5px 0px 10px 0px;
+    padding-bottom: 10px;
 }
 
 .links {
@@ -872,8 +866,10 @@ footer .text-lg-right a {
 
 .all-bookings .img-avatar {
     margin-top: 20px;
-    max-height: 80px;
-    max-width: 80px;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .all-bookings .img-post {

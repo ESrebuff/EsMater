@@ -28,9 +28,6 @@ class ControllerPost {
             if($booking){
                 $view = new \MyApp\View\View("Post");
                 $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date, 'booking' => $booking));
-            } else {
-                $view = new \MyApp\View\View("Post");
-                $view->generate(array('post' => $post, 'comments' => $comments, 'date' => $date, 'booking' => $booking));
             }
         } else {
             $view = new \MyApp\View\View("Post");

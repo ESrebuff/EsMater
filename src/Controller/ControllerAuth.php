@@ -40,15 +40,6 @@ class ControllerAuth {
         }
     }
     
-    public function trylol($password, $username){
-        $lol = $this->tryPassword($password, $username);
-        if($lol){
-            echo "lol";
-        } else {
-            echo "not lol";
-        }
-    }
-    
     // Verify the username
     public function usernameIsUniq($username){
         if($this->auth->usernameIsUniqAuth($username)){
@@ -73,7 +64,7 @@ class ControllerAuth {
         $user_id = $user['id'];
         $mail = new \MyApp\Tools\FunctionMail();
         $subject = "La page web EsMater Confirmation de votre compte";
-        $messageContent = "Afin de valider votre compte merci de cliquer sur ce lien : <a href='http://localhost/projets/freshClone/EsMater/index.php?action=confirm&id=$user_id&token=$token'>Cliquer ici</a>";
+        $messageContent = "Afin de valider votre compte merci de cliquer sur ce lien : <a href='http://localhost/projets/EsMater/index.php?action=confirm&id=$user_id&token=$token'>Cliquer ici</a>";
         $sender = $email;
         $mail->sendmail($subject, $messageContent, $sender);
         $this->tools->sessionOn();
@@ -144,7 +135,7 @@ class ControllerAuth {
             $this->auth->resetToken($reset_token, $user['id']);
             $mail = new \MyApp\Tools\FunctionMail();
             $subject = "La page web EsMater Réinitialisation de votre mot de passe";
-            $messageContent = "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien : <a href='http://localhost/projets/freshClone/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token'>Cliquer ici</a>";
+            $messageContent = "Afin de réinitialisation votre mot de passe merci de cliquer sur ce lien : <a href='http://localhost/projets/EsMater/index.php?action=forgetPasswordAuth&id={$user['id']}&token=$reset_token'>Cliquer ici</a>";
             $sender = $email;
             $mail->sendmail($subject, $messageContent, $sender);
             $this->tools->flashMessage("success", "Un email pour réinitialiser votre mot de passe à bien été envoyé", "Login");
